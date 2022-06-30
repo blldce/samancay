@@ -11,40 +11,33 @@ start:
     jmp 0x7c0:step2 ; set code segment 0x7c0
 
 
-handle_zero: ; responsible for handling interrupt 0
-    mov ah, 0eh
-    mov al, 'A'
-    mov bx, 0x00
-    int 0x10
-    iret ; interrupt return
-
-handle_one:
-    mov ah, 0eh
-    mov al, 'B'
-    mov bx, 0x00
-    int 0x10
-    iret ; interrupt return
-
 step2:
     cli ; clear interrupts
     mov ax, 0x7c0 ; hold address
     mov ds, ax ; set data segment
-    mov es, ax
+    mov es, ax ; extra segment
     mov ax, 0x00 ; hold address
     mov ss, ax ; set stack segment
     mov sp, 0x7c00 ; set pointer to 0x7c00
     sti ; enables interrupts
 
-    ; https://wiki.osdev.org/Exceptions
-    mov word[ss:0x00], handle_zero ; interrupts start with 0x0 memory address
-    mov word[ss:0x02], 0x7c0 ; 
+    ; https://www.ctyme.com/intr/int.htm
+    mov ah, 2 ; read sector
+    mov al, 1 ; one sector read
+    mov ch, 0 ; cylinder low eight bits
+    mov cl, 2 ; read sector two
+    mov dh, 0 ; head number
+    mov bx, buffer
+    int 0x13 ; invoke interrupt 13
+    jc error ; jump carry
 
-    mov word[ss:0x04], handle_one 
-    mov word[ss:0x06], 0x7c0
+    mov si, buffer
+    call print
 
-    int 0 ; interrupt  0 (divide by zero interrupt)
+    jmp $ ; infinitive loop
 
-    mov si, message    ; move message addr into si register
+error:
+    mov si, error_message
     call print
     jmp $ ; infinitive loop
 
@@ -64,7 +57,9 @@ print_char:
     int 0x10 ; BIOS TTY output interrupt. Display a characater on vga.
     ret
 
-message: db 'Hello World', 0
+error_message: db 'Failed to load sector', 0
 
 times 510-($ - $$) db 0 ; fill 510 bytes with zeroes.
 dw 0xAA55 ; boot signature
+
+buffer:
