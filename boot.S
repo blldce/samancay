@@ -1,6 +1,10 @@
 
-ORG 0
+ORG 0x7c00
 BITS 16
+
+CODE_SEG equ gdt_code - gdt_start
+DATA_SEG equ gdt_data - gdt_start
+
 _start:
     jmp short start
     nop
@@ -8,58 +12,69 @@ _start:
 times 33 db 0
 
 start:
-    jmp 0x7c0:step2 ; set code segment 0x7c0
+    jmp 0:step2 ; set code segment 0x7c0
 
 
 step2:
     cli ; clear interrupts
-    mov ax, 0x7c0 ; hold address
+    mov ax, 0x00 ; hold address
     mov ds, ax ; set data segment
     mov es, ax ; extra segment
-    mov ax, 0x00 ; hold address
     mov ss, ax ; set stack segment
     mov sp, 0x7c00 ; set pointer to 0x7c00
     sti ; enables interrupts
 
-    ; https://www.ctyme.com/intr/int.htm
-    mov ah, 2 ; read sector
-    mov al, 1 ; one sector read
-    mov ch, 0 ; cylinder low eight bits
-    mov cl, 2 ; read sector two
-    mov dh, 0 ; head number
-    mov bx, buffer
-    int 0x13 ; invoke interrupt 13
-    jc error ; jump carry
+.load_protected:
+    cli
+    lgdt[gdt_descriptor]
+    mov eax, cr0
+    or eax, 0x1
+    mov cr0, eax
+    jmp CODE_SEG:load32
 
-    mov si, buffer
-    call print
 
-    jmp $ ; infinitive loop
+; GDT https://wiki.osdev.org/Protected_Mode
+gdt_start:
+gdt_null:
+    dd 0x0
+    dd 0x0
 
-error:
-    mov si, error_message
-    call print
-    jmp $ ; infinitive loop
+; offset 0x8
+gdt_code:           ; CS should point this label
+    dw 0xffff       ; segment limit 0-15 bits
+    dw 0            ; base 0-15 bits
+    db 0            ; base 16-23 bits
+    db 0x9a         ; access byte
+    db 11001111b    ; high 4 bits flags and the low 4 bit flags
+    db 0            ; base 24-31 bits
 
-print:
-    mov bx, 0
-.loop:
-    lodsb ; loads si register point to.
-    cmp al, 0
-    je .done
-    call print_char
-    jmp .loop
-.done:
-    ret
+; offset 0x10
+gdt_data:           ; DS, SS, ES, FS, GS
+    dw 0xffff       ; segment limit 0-15 bits
+    dw 0            ; base 0-15 bits
+    db 0            ; base 16-23 bits
+    db 0x92         ; access byte
+    db 11001111b    ; high 4 bits flags and the low 4 bit flags
+    db 0            ; base 24-31 bits
 
-print_char:
-    mov ah, 0eh
-    int 0x10 ; BIOS TTY output interrupt. Display a characater on vga.
-    ret
+gdt_end:
 
-error_message: db 'Failed to load sector', 0
+gdt_descriptor:
+    dw gdt_end - gdt_start - 1
+    dd gdt_start
+
+
+[BITS 32]
+load32:
+    mov ax, DATA_SEG
+    mov ds, ax
+    mov es, ax
+    mov fs, ax
+    mov gs, ax
+    mov ss, ax
+    mov ebp, 0x00200000
+    mov esp, ebp
+    jmp $
 
 times 510-($ - $$) db 0 ; fill 510 bytes with zeroes.
 dw 0xAA55 ; boot signature
-
-buffer:
