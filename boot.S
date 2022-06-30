@@ -1,8 +1,9 @@
+
 ORG 0X7c00
 BITS 16
 
 start:
-    mov si, message    
+    mov si, message    ; move message addr into si register
     call print
     jmp $ ; infinitive loop
 
@@ -10,7 +11,7 @@ start:
 print:
     mov bx, 0
 .loop:
-    lodsb
+    lodsb ; loads si register point to.
     cmp al, 0
     je .done
     call print_char
