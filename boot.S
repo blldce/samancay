@@ -1,8 +1,18 @@
 
-ORG 0X7c00
+ORG 0
 BITS 16
 
+jmp 0x7c0:start ; set code segment 0x7c0
+
 start:
+    cli ; clear interrupts
+    mov ax, 0x7c0
+    mov ds, ax ; set data segment
+    mov es, ax
+    mov ax, 0x00
+    mov ss, ax ; set stack segment
+    mov sp, 0x7c00 ; set pointer to 0x7c00
+    sti ; enables interrupts
     mov si, message    ; move message addr into si register
     call print
     jmp $ ; infinitive loop
