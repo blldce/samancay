@@ -73,6 +73,14 @@ load32:
     call ata_lba_read
     jmp CODE_SEG:0x0100000
 
+
+
+
+
+
+
+
+
 ata_lba_read:
      mov ebx, eax, ; Backup the LBA
     ; Send the highest 8 bits of the lba to hard disk controller
@@ -111,7 +119,7 @@ ata_lba_read:
     mov dx, 0x1f7
     mov al, 0x20
     out dx, al
-    
+
 ; Read all sectors into memory
 .next_sector:
     push ecx
@@ -131,6 +139,15 @@ ata_lba_read:
     loop .next_sector
     ; End of reading sectors into memory
     ret
+
+
+
+
+
+
+
+
+
 
 
 
