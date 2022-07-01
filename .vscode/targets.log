@@ -6,7 +6,7 @@ make all --print-data-base --no-builtin-variables --no-builtin-rules --question
 # This is free software: you are free to change and redistribute it.
 # There is NO WARRANTY, to the extent permitted by law.
 
-# Make data base, printed on Fri Jul  1 23:41:27 2022
+# Make data base, printed on Sat Jul  2 01:42:24 2022
 
 # Variables
 
@@ -235,7 +235,7 @@ GDMSESSION = pop
 
 bin/boot.bin: src/boot/boot.S
 #  Implicit rule search has not been done.
-#  Last modified 2022-07-01 23:21:21.293884325
+#  Last modified 2022-07-02 01:42:10.26441752
 #  File has been updated.
 #  Successfully updated.
 #  recipe to execute (from 'Makefile', line 19):
@@ -243,11 +243,9 @@ bin/boot.bin: src/boot/boot.S
 
 bin/kernel.bin: build/kernel.S.o build/kernel.o
 #  Implicit rule search has not been done.
-#  Last modified 2022-07-01 23:21:21.313882042
+#  Last modified 2022-07-02 01:42:10.284417664
 #  File has been updated.
-#  Needs to be updated (-q is set).
-# variable set hash-table stats:
-# Load=0/32=0%, Rehash=0, Collisions=0/3=0%
+#  Successfully updated.
 #  recipe to execute (from 'Makefile', line 23):
 	i686-linux-gnu-ld -g $(FILES) -o ./build/kernelfull.o
 	i686-linux-gnu-gcc $(FLAGS) -T ./src/linker.ld -o ./bin/kernel.bin ./build/kernelfull.o
@@ -255,7 +253,7 @@ bin/kernel.bin: build/kernel.S.o build/kernel.o
 # Not a target:
 Makefile:
 #  Implicit rule search has been done.
-#  Last modified 2022-07-01 23:30:17.710010423
+#  Last modified 2022-07-02 01:42:02.012357938
 #  File has been updated.
 #  Successfully updated.
 
@@ -276,8 +274,9 @@ clean:
 
 build/kernel.o: src/kernel.c
 #  Implicit rule search has not been done.
-#  Modification time never checked.
-#  File has not been updated.
+#  Last modified 2022-07-02 01:42:10.280417635
+#  File has been updated.
+#  Successfully updated.
 #  recipe to execute (from 'Makefile', line 32):
 	i686-linux-gnu-gcc $(INCLUDES) $(FLAGS) -std=gnu99 -c ./src/kernel.c -o ./build/kernel.o
 	
@@ -291,9 +290,10 @@ src/boot/boot.S:
 
 # Not a target:
 src/kernel.c:
-#  Implicit rule search has not been done.
-#  Modification time never checked.
-#  File has not been updated.
+#  Implicit rule search has been done.
+#  Last modified 2022-07-02 01:40:38.327736138
+#  File has been updated.
+#  Successfully updated.
 
 # Not a target:
 .DEFAULT:
@@ -304,41 +304,46 @@ src/kernel.c:
 all: bin/boot.bin bin/kernel.bin
 #  Command line target.
 #  Implicit rule search has not been done.
+#  Implicit/static pattern stem: ''
 #  File does not exist.
 #  File has been updated.
 #  Needs to be updated (-q is set).
-# variable set hash-table stats:
-# Load=0/32=0%, Rehash=0, Collisions=0/3=0%
-#  recipe to execute (from 'Makefile', line 13):
- 
-	dd if=./bin/boot.bin >> ./bin/os.bin
-	dd if=./bin/kernel.bin >> ./bin/os.bin
-	dd if=/dev/zero bs=512 count=100 >> ./bin/os.bin
-
-build/kernel.S.o: src/kernel.S
-#  Implicit rule search has not been done.
-#  Implicit/static pattern stem: ''
-#  Last modified 2022-07-01 23:21:21.293884325
-#  File has been updated.
-#  Needs to be updated (-q is set).
 # automatic
-# @ := build/kernel.S.o
+# @ := all
 # automatic
 # * := 
 # automatic
-# < := src/kernel.S
+# < := bin/boot.bin
 # automatic
-# + := src/kernel.S
+# + := bin/boot.bin bin/kernel.bin
 # automatic
 # % := 
 # automatic
-# ^ := src/kernel.S
+# ^ := bin/boot.bin bin/kernel.bin
 # automatic
-# ? := src/kernel.S
+# ? := bin/boot.bin bin/kernel.bin
 # automatic
 # | := 
 # variable set hash-table stats:
 # Load=8/32=25%, Rehash=0, Collisions=1/11=9%
+#  recipe to execute (from 'Makefile', line 13):
+	dd if=./bin/boot.bin >> ./bin/os.bin
+	dd if=./bin/kernel.bin >> ./bin/os.bin
+	dd if=/dev/zero bs=512 count=100 >> ./bin/os.bin
+
+run:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+#  recipe to execute (from 'Makefile', line 39):
+	qemu-system-x86_64 -hda ./bin/os.bin
+
+build/kernel.S.o: src/kernel.S
+#  Implicit rule search has not been done.
+ 
+#  Last modified 2022-07-02 01:42:10.26441752
+#  File has been updated.
+#  Successfully updated.
 #  recipe to execute (from 'Makefile', line 29):
 	nasm -f elf -g ./src/kernel.S -o ./build/kernel.S.o
 
@@ -349,19 +354,19 @@ build/kernel.S.o: src/kernel.S
 #  File has not been updated.
 
 # files hash-table stats:
-# Load=12/1024=1%, Rehash=0, Collisions=0/35=0%
+# Load=13/1024=1%, Rehash=0, Collisions=0/36=0%
 # VPATH Search Paths
 
 # No 'vpath' search paths.
 
 # No general ('VPATH' variable) search path.
 
-# strcache buffers: 1 (0) / strings = 23 / storage = 222 B / avg = 9 B
-# current buf: size = 8162 B / used = 222 B / count = 23 / avg = 9 B
+# strcache buffers: 1 (0) / strings = 24 / storage = 226 B / avg = 9 B
+# current buf: size = 8162 B / used = 226 B / count = 24 / avg = 9 B
 
-# strcache performance: lookups = 39 / hit rate = 41%
+# strcache performance: lookups = 41 / hit rate = 41%
 # hash-table stats:
-# Load=23/8192=0%, Rehash=0, Collisions=0/39=0%
-# Finished Make data base on Fri Jul  1 23:41:27 2022
+# Load=24/8192=0%, Rehash=0, Collisions=0/41=0%
+# Finished Make data base on Sat Jul  2 01:42:24 2022
 
  
