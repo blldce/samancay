@@ -12,7 +12,7 @@ _start:
 times 33 db 0
 
 start:
-    jmp 0:step2 ; set code segment 0x7c0
+    jmp 0:step2 
 
 
 step2:
@@ -30,7 +30,8 @@ step2:
     mov eax, cr0
     or eax, 0x1
     mov cr0, eax
-    jmp CODE_SEG:load32
+    ;jmp CODE_SEG:load32
+    jmp $
 
 
 ; GDT https://wiki.osdev.org/Protected_Mode
@@ -63,18 +64,6 @@ gdt_descriptor:
     dw gdt_end - gdt_start - 1
     dd gdt_start
 
-
-[BITS 32]
-load32:
-    mov ax, DATA_SEG
-    mov ds, ax
-    mov es, ax
-    mov fs, ax
-    mov gs, ax
-    mov ss, ax
-    mov ebp, 0x00200000
-    mov esp, ebp
-    jmp $
 
 times 510-($ - $$) db 0 ; fill 510 bytes with zeroes.
 dw 0xAA55 ; boot signature
