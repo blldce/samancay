@@ -1,6 +1,6 @@
 #include "kernel.h"
 
-void start_kernel()
+void kernel_main()
 {
     
 }
