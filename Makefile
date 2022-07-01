@@ -34,3 +34,6 @@ all: ./bin/boot.bin ./bin/kernel.bin
 clean:
 	rm -rf ./bin/*.bin
 	rm -rf ./build/*.o
+
+run:
+	qemu-system-x86_64 -hda ./bin/os.bin
