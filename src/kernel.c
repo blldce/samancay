@@ -3,8 +3,6 @@
 
 void kernel_main()
 {
-
     println("Hi");
-
     println("Hola, coma estas?");
 }
