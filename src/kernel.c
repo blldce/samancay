@@ -1,8 +1,11 @@
 #include "kernel.h"
-#include "vga.h"
+#include "vga/vga.h"
+#include "idt/idt.h"
 
 void kernel_main()
 {
+    init_vga();
+
     println("Hi");
-    println("Hola, \n coma estas?");
+    println("Hola, \ncoma estas?");
 }

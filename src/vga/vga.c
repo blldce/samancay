@@ -18,8 +18,7 @@ typedef enum
 } color_t;
 
 static uint16_t make_char(char character, color_t color);
-static void init_vga();
-static void invalidate();
+static void new_line();
 
 static uint16_t make_char(char character, color_t color)
 {
@@ -27,7 +26,7 @@ static uint16_t make_char(char character, color_t color)
 }
 
 // clear VGA rows colums
-static void init_vga()
+void init_vga()
 {
     vga_base_addr = (uint16_t(*))0xB8000;
     vga_row_index = 0;
@@ -49,9 +48,6 @@ static void init_vga()
 
 void println(char(*char_buff))
 {
-    if (vga_base_addr == 0x0) // init vga
-        init_vga();
-
     if (vga_row_index >= VGA_MAX_ROW) // recycle vga
         init_vga();
 
@@ -59,11 +55,11 @@ void println(char(*char_buff))
     while (char_buff[index]) // check null terminator ('\0')
     {
         if (vga_col_index >= VGA_MAX_COL) // check end of max column
-            invalidate();
+            new_line();
 
-        if (char_buff[index] == '\n')
+        if (char_buff[index] == '\n') // check new line
         {
-            invalidate();
+            new_line();
             index++;
         }
 
@@ -71,10 +67,10 @@ void println(char(*char_buff))
         index++;
         vga_col_index++;
     }
-    invalidate();
+    new_line();
 }
 
-static void invalidate()
+static void new_line()
 {
     vga_col_index = 0; // reset column
     vga_row_index++;   // new row
