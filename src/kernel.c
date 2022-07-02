@@ -7,5 +7,4 @@ void kernel_main()
     init_vga();
 
     println("Hi");
-    println("Hola, \ncoma estas?");
 }
