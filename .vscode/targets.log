@@ -6,7 +6,7 @@ make all --print-data-base --no-builtin-variables --no-builtin-rules --question
 # This is free software: you are free to change and redistribute it.
 # There is NO WARRANTY, to the extent permitted by law.
 
-# Make data base, printed on Sat Jul  2 01:42:24 2022
+# Make data base, printed on Sat Jul  2 06:12:36 2022
 
 # Variables
 
@@ -141,7 +141,7 @@ VSCODE_LOG_NATIVE = false
 # environment
 USERNAME = reaur
 # makefile (from 'Makefile', line 7)
-FILES = ./build/kernel.S.o ./build/kernel.o
+FILES = ./build/kernel.S.o ./build/kernel.o ./build/vga.o
 # environment
 LESSCLOSE = /usr/bin/lesspipe %s %s
 # automatic
@@ -235,25 +235,39 @@ GDMSESSION = pop
 
 bin/boot.bin: src/boot/boot.S
 #  Implicit rule search has not been done.
-#  Last modified 2022-07-02 01:42:10.26441752
+#  Last modified 2022-07-02 06:12:13.278978783
 #  File has been updated.
 #  Successfully updated.
 #  recipe to execute (from 'Makefile', line 19):
 	nasm -f bin ./src/boot/boot.S -o ./bin/boot.bin
 
-bin/kernel.bin: build/kernel.S.o build/kernel.o
+# Not a target:
+src/vga.c:
+#  Implicit rule search has been done.
+#  Last modified 2022-07-02 06:10:05.760987663
+#  File has been updated.
+#  Successfully updated.
+
+bin/kernel.bin: build/kernel.S.o build/kernel.o build/vga.o
 #  Implicit rule search has not been done.
-#  Last modified 2022-07-02 01:42:10.284417664
+#  Last modified 2022-07-02 06:12:13.314981373
 #  File has been updated.
 #  Successfully updated.
 #  recipe to execute (from 'Makefile', line 23):
 	i686-linux-gnu-ld -g $(FILES) -o ./build/kernelfull.o
 	i686-linux-gnu-gcc $(FLAGS) -T ./src/linker.ld -o ./bin/kernel.bin ./build/kernelfull.o
 
+debug:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+#  recipe to execute (from 'Makefile', line 45):
+	qemu-system-x86_64 -hda ./bin/os.bin -S
+
 # Not a target:
 Makefile:
 #  Implicit rule search has been done.
-#  Last modified 2022-07-02 01:42:02.012357938
+#  Last modified 2022-07-02 06:11:51.885409863
 #  File has been updated.
 #  Successfully updated.
 
@@ -264,22 +278,22 @@ src/kernel.S:
 #  File has been updated.
 #  Successfully updated.
 
+ 
 clean:
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
-#  recipe to execute (from 'Makefile', line 35):
+#  recipe to execute (from 'Makefile', line 38):
 	rm -rf ./bin/*.bin
 	rm -rf ./build/*.o
 
 build/kernel.o: src/kernel.c
 #  Implicit rule search has not been done.
-#  Last modified 2022-07-02 01:42:10.280417635
+#  Last modified 2022-07-02 06:12:13.294979934
 #  File has been updated.
 #  Successfully updated.
 #  recipe to execute (from 'Makefile', line 32):
 	i686-linux-gnu-gcc $(INCLUDES) $(FLAGS) -std=gnu99 -c ./src/kernel.c -o ./build/kernel.o
-	
 
 # Not a target:
 src/boot/boot.S:
@@ -291,7 +305,7 @@ src/boot/boot.S:
 # Not a target:
 src/kernel.c:
 #  Implicit rule search has been done.
-#  Last modified 2022-07-02 01:40:38.327736138
+#  Last modified 2022-07-02 06:10:41.159785475
 #  File has been updated.
 #  Successfully updated.
 
@@ -335,13 +349,21 @@ run:
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
-#  recipe to execute (from 'Makefile', line 39):
+#  recipe to execute (from 'Makefile', line 42):
 	qemu-system-x86_64 -hda ./bin/os.bin
+
+build/vga.o: src/vga.c
+#  Implicit rule search has not been done.
+#  Last modified 2022-07-02 06:12:13.310981086
+#  File has been updated.
+#  Successfully updated.
+#  recipe to execute (from 'Makefile', line 35):
+	i686-linux-gnu-gcc $(INCLUDES) $(FLAGS) -std=gnu99 -c ./src/vga.c -o ./build/vga.o
+	
 
 build/kernel.S.o: src/kernel.S
 #  Implicit rule search has not been done.
- 
-#  Last modified 2022-07-02 01:42:10.26441752
+#  Last modified 2022-07-02 06:12:13.282979071
 #  File has been updated.
 #  Successfully updated.
 #  recipe to execute (from 'Makefile', line 29):
@@ -354,19 +376,19 @@ build/kernel.S.o: src/kernel.S
 #  File has not been updated.
 
 # files hash-table stats:
-# Load=13/1024=1%, Rehash=0, Collisions=0/36=0%
+# Load=16/1024=2%, Rehash=0, Collisions=0/42=0%
 # VPATH Search Paths
 
 # No 'vpath' search paths.
 
 # No general ('VPATH' variable) search path.
 
-# strcache buffers: 1 (0) / strings = 24 / storage = 226 B / avg = 9 B
-# current buf: size = 8162 B / used = 226 B / count = 24 / avg = 9 B
+# strcache buffers: 1 (0) / strings = 27 / storage = 254 B / avg = 9 B
+# current buf: size = 8162 B / used = 254 B / count = 27 / avg = 9 B
 
-# strcache performance: lookups = 41 / hit rate = 41%
+# strcache performance: lookups = 47 / hit rate = 42%
 # hash-table stats:
-# Load=24/8192=0%, Rehash=0, Collisions=0/41=0%
-# Finished Make data base on Sat Jul  2 01:42:24 2022
+# Load=27/8192=0%, Rehash=0, Collisions=0/47=0%
+# Finished Make data base on Sat Jul  2 06:12:36 2022
 
  
