@@ -19,6 +19,7 @@ typedef enum
 
 static uint16_t make_char(char character, color_t color);
 static void init_vga();
+static void invalidate();
 
 static uint16_t make_char(char character, color_t color)
 {
@@ -58,16 +59,23 @@ void println(char(*char_buff))
     while (char_buff[index]) // check null terminator ('\0')
     {
         if (vga_col_index >= VGA_MAX_COL) // check end of max column
+            invalidate();
+
+        if (char_buff[index] == '\n')
         {
-            vga_col_index = 0; // reset column
-            vga_row_index++;   // new row
+            invalidate();
+            index++;
         }
 
         vga_base_addr[vga_row_index * VGA_MAX_COL + vga_col_index] = make_char(char_buff[index], WHITE);
         index++;
         vga_col_index++;
     }
+    invalidate();
+}
 
+static void invalidate()
+{
     vga_col_index = 0; // reset column
     vga_row_index++;   // new row
 }
