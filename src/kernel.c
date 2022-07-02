@@ -4,5 +4,5 @@
 void kernel_main()
 {
     println("Hi");
-    println("Hola, coma estas?");
+    println("Hola, \n coma estas?");
 }
