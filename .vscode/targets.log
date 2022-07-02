@@ -6,7 +6,7 @@ make all --print-data-base --no-builtin-variables --no-builtin-rules --question
 # This is free software: you are free to change and redistribute it.
 # There is NO WARRANTY, to the extent permitted by law.
 
-# Make data base, printed on Sat Jul  2 06:12:36 2022
+# Make data base, printed on Sun Jul  3 02:02:30 2022
 
 # Variables
 
@@ -19,11 +19,9 @@ GNOME_SHELL_SESSION_MODE = pop
 # environment
 SSH_AGENT_LAUNCHER = gnome-keyring
 # environment
-GJS_DEBUG_OUTPUT = stderr
+VSCODE_IPC_HOOK_EXTHOST = /run/user/1000/vscode-ipc-887d61fb-8cb9-4139-a7c0-4e2f782a884c.sock
 # environment
-VSCODE_IPC_HOOK_EXTHOST = /run/user/1000/vscode-ipc-6d58f77f-218a-4434-aa86-247e69926d87.sock
-# environment
-VSCODE_CWD = /home/reaur
+VSCODE_CWD = /home/reaur/Desktop/git/samancay
 # environment
 WINDOWPATH = 2
 # default
@@ -58,6 +56,8 @@ XAUTHORITY = /run/user/1000/gdm/Xauthority
 .LOADED := 
 # default
 .INCLUDE_DIRS = /usr/local/include /usr/include /usr/include
+# environment
+GNOME_TERMINAL_SERVICE = :1.96
 # makefile
 MAKEFLAGS = pqrR
 # makefile
@@ -89,7 +89,7 @@ MAKEFILE_LIST := Makefile
 # environment
 VSCODE_VERBOSE_LOGGING = true
 # environment
-VSCODE_PID = 8512
+VSCODE_PID = 3048
 # environment
 XDG_SESSION_TYPE = x11
 # automatic
@@ -99,7 +99,7 @@ FLAGS = -g -ffreestanding -falign-jumps -falign-functions -falign-labels -falign
 # makefile (from 'Makefile', line 8)
 INCLUDES = -I./src
 # environment
-SESSION_MANAGER = local/pop-os:@/tmp/.ICE-unix/1806,unix/pop-os:/tmp/.ICE-unix/1806
+SESSION_MANAGER = local/pop-os:@/tmp/.ICE-unix/2272,unix/pop-os:/tmp/.ICE-unix/2272
 # automatic
 *F = $(notdir $*)
 # environment
@@ -121,9 +121,9 @@ MAKECMDGOALS := all
 # environment
 XMODIFIERS = @im=ibus
 # environment
-GJS_DEBUG_TOPICS = JS ERROR;JS LOG
+SHLVL = 1
 # environment
-SHLVL = 0
+GNOME_TERMINAL_SCREEN = /org/gnome/Terminal/screen/969f905e_3b6e_4afb_a175_d990e455f01d
 # environment
 MAKELEVEL := 0
 # default
@@ -135,13 +135,11 @@ MAKEFILES :=
 # automatic
 ^F = $(notdir $^)
 # environment
-INVOCATION_ID = 41e4182c1483471ea94bd283a375c37b
-# environment
 VSCODE_LOG_NATIVE = false
 # environment
 USERNAME = reaur
 # makefile (from 'Makefile', line 7)
-FILES = ./build/kernel.S.o ./build/kernel.o ./build/vga.o
+FILES = ./build/kernel.S.o ./build/kernel.o ./build/vga.o ./build/idt.S.o ./build/idt.o ./build/memory.o
 # environment
 LESSCLOSE = /usr/bin/lesspipe %s %s
 # automatic
@@ -151,7 +149,7 @@ GTK_IM_MODULE = ibus
 # environment
 XDG_CURRENT_DESKTOP = Unity
 # environment
-LS_COLORS = 
+LS_COLORS = rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:
 # automatic
 +F = $(notdir $+)
 # environment
@@ -162,12 +160,10 @@ ORIGINAL_XDG_CURRENT_DESKTOP = pop:GNOME
 GNUMAKEFLAGS := 
 # environment
 LOGNAME = reaur
-# environment
-GIO_LAUNCHED_DESKTOP_FILE = /usr/share/applications/code.desktop
 # makefile
 .DEFAULT_GOAL := all
 # environment
-SYSTEMD_EXEC_PID = 1828
+SYSTEMD_EXEC_PID = 2967
 # environment
 DISPLAY = :1
 # environment
@@ -177,19 +173,15 @@ GTK_MODULES = gail:atk-bridge:appmenu-gtk-module
 # default
 MAKE_VERSION := 4.3
 # environment
-MANAGERPID = 1430
-# environment
 NODE_TLS_REJECT_UNAUTHORIZED = 0
 # environment
-GIO_LAUNCHED_DESKTOP_FILE_PID = 8512
-# environment
-_ = /usr/share/code/code
+_ = /usr/bin/code
 # environment
 XDG_RUNTIME_DIR = /run/user/1000
 # environment
 GPG_AGENT_INFO = /run/user/1000/gnupg/S.gpg-agent:0:1
 # environment
-JOURNAL_STREAM = 8:35130
+COLORTERM = truecolor
 # environment
 XDG_SESSION_CLASS = user
 # environment
@@ -202,12 +194,20 @@ QT_IM_MODULE = ibus
 ELECTRON_RUN_AS_NODE = 1
 # environment
 VSCODE_IPC_HOOK = /run/user/1000/vscode-5aa9fa20-1.68.1-main.sock
+# environment
+TERM = xterm-256color
 # default
 .RECIPEPREFIX := 
 # automatic
 <F = $(notdir $<)
 # default
 SUFFIXES := 
+# environment
+VSCODE_CLI = 1
+# environment
+ELECTRON_NO_ATTACH_CONSOLE = 1
+# environment
+VTE_VERSION = 6800
 # default
 .FEATURES := target-specific order-only second-expansion else-if shortest-stem undefine oneshell nocomment grouped-target extra-prereqs archives jobserver output-sync check-symlink load
 # environment
@@ -215,7 +215,7 @@ XDG_MENU_PREFIX = gnome-
 # environment
 GDMSESSION = pop
 # variable set hash-table stats:
-# Load=102/1024=10%, Rehash=0, Collisions=3/136=2%
+# Load=102/1024=10%, Rehash=0, Collisions=10/136=7%
 
 # Pattern-specific Variable Values
 
@@ -235,41 +235,93 @@ GDMSESSION = pop
 
 bin/boot.bin: src/boot/boot.S
 #  Implicit rule search has not been done.
-#  Last modified 2022-07-02 06:12:13.278978783
+#  Last modified 2022-07-03 01:59:37.094505218
 #  File has been updated.
 #  Successfully updated.
 #  recipe to execute (from 'Makefile', line 19):
 	nasm -f bin ./src/boot/boot.S -o ./bin/boot.bin
 
-# Not a target:
-src/vga.c:
-#  Implicit rule search has been done.
-#  Last modified 2022-07-02 06:10:05.760987663
-#  File has been updated.
-#  Successfully updated.
-
-bin/kernel.bin: build/kernel.S.o build/kernel.o build/vga.o
+build/idt.o: src/idt/idt.c
 #  Implicit rule search has not been done.
-#  Last modified 2022-07-02 06:12:13.314981373
+#  Modification time never checked.
+#  File has not been updated.
+#  recipe to execute (from 'Makefile', line 41):
+	i686-linux-gnu-gcc $(INCLUDES) $(FLAGS) -std=gnu99 -c ./src/idt/idt.c -o ./build/idt.o
+
+bin/kernel.bin: build/kernel.S.o build/kernel.o build/vga.o build/idt.S.o build/idt.o build/memory.o
+#  Implicit rule search has not been done.
+#  Last modified 2022-07-03 01:59:37.178530808
 #  File has been updated.
-#  Successfully updated.
+#  Needs to be updated (-q is set).
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/3=0%
 #  recipe to execute (from 'Makefile', line 23):
 	i686-linux-gnu-ld -g $(FILES) -o ./build/kernelfull.o
 	i686-linux-gnu-gcc $(FLAGS) -T ./src/linker.ld -o ./bin/kernel.bin ./build/kernelfull.o
+
+# Not a target:
+src/idt/idt.S:
+#  Implicit rule search has been done.
+#  Last modified 2022-07-03 02:00:15.490239244
+#  File has been updated.
+#  Successfully updated.
+
+build/idt.S.o: src/idt/idt.S
+#  Implicit rule search has not been done.
+#  Implicit/static pattern stem: ''
+#  Last modified 2022-07-03 01:59:37.134517404
+#  File has been updated.
+#  Needs to be updated (-q is set).
+# automatic
+# @ := build/idt.S.o
+# automatic
+# * := 
+# automatic
+# < := src/idt/idt.S
+# automatic
+# + := src/idt/idt.S
+# automatic
+# % := 
+# automatic
+ 
+# ^ := src/idt/idt.S
+# automatic
+# ? := src/idt/idt.S
+# automatic
+# | := 
+# variable set hash-table stats:
+# Load=8/32=25%, Rehash=0, Collisions=1/11=9%
+#  recipe to execute (from 'Makefile', line 38):
+	nasm -f elf -g ./src/idt/idt.S -o ./build/idt.S.o
+	
+
+# Not a target:
+src/vga/vga.c:
+#  Implicit rule search has been done.
+#  Last modified 2022-07-03 01:41:54.060899575
+#  File has been updated.
+#  Successfully updated.
 
 debug:
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
-#  recipe to execute (from 'Makefile', line 45):
+#  recipe to execute (from 'Makefile', line 56):
 	qemu-system-x86_64 -hda ./bin/os.bin -S
 
 # Not a target:
 Makefile:
 #  Implicit rule search has been done.
-#  Last modified 2022-07-02 06:11:51.885409863
+#  Last modified 2022-07-03 02:01:00.820162825
 #  File has been updated.
 #  Successfully updated.
+
+build/memory.o: src/memory/memory.c
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+#  recipe to execute (from 'Makefile', line 44):
+	i686-linux-gnu-gcc $(INCLUDES) $(FLAGS) -std=gnu99 -c ./src/memory/memory.c -o ./build/memory.o	
 
 # Not a target:
 src/kernel.S:
@@ -278,18 +330,17 @@ src/kernel.S:
 #  File has been updated.
 #  Successfully updated.
 
- 
 clean:
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
-#  recipe to execute (from 'Makefile', line 38):
+#  recipe to execute (from 'Makefile', line 49):
 	rm -rf ./bin/*.bin
 	rm -rf ./build/*.o
 
 build/kernel.o: src/kernel.c
 #  Implicit rule search has not been done.
-#  Last modified 2022-07-02 06:12:13.294979934
+#  Last modified 2022-07-03 01:59:37.110510092
 #  File has been updated.
 #  Successfully updated.
 #  recipe to execute (from 'Makefile', line 32):
@@ -305,7 +356,7 @@ src/boot/boot.S:
 # Not a target:
 src/kernel.c:
 #  Implicit rule search has been done.
-#  Last modified 2022-07-02 06:10:41.159785475
+#  Last modified 2022-07-03 01:59:32.369066961
 #  File has been updated.
 #  Successfully updated.
 
@@ -318,28 +369,11 @@ src/kernel.c:
 all: bin/boot.bin bin/kernel.bin
 #  Command line target.
 #  Implicit rule search has not been done.
-#  Implicit/static pattern stem: ''
 #  File does not exist.
 #  File has been updated.
 #  Needs to be updated (-q is set).
-# automatic
-# @ := all
-# automatic
-# * := 
-# automatic
-# < := bin/boot.bin
-# automatic
-# + := bin/boot.bin bin/kernel.bin
-# automatic
-# % := 
-# automatic
-# ^ := bin/boot.bin bin/kernel.bin
-# automatic
-# ? := bin/boot.bin bin/kernel.bin
-# automatic
-# | := 
 # variable set hash-table stats:
-# Load=8/32=25%, Rehash=0, Collisions=1/11=9%
+# Load=0/32=0%, Rehash=0, Collisions=0/3=0%
 #  recipe to execute (from 'Makefile', line 13):
 	dd if=./bin/boot.bin >> ./bin/os.bin
 	dd if=./bin/kernel.bin >> ./bin/os.bin
@@ -349,21 +383,27 @@ run:
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
-#  recipe to execute (from 'Makefile', line 42):
+#  recipe to execute (from 'Makefile', line 53):
 	qemu-system-x86_64 -hda ./bin/os.bin
 
-build/vga.o: src/vga.c
+build/vga.o: src/vga/vga.c
 #  Implicit rule search has not been done.
-#  Last modified 2022-07-02 06:12:13.310981086
+#  Last modified 2022-07-03 01:59:37.130516185
 #  File has been updated.
 #  Successfully updated.
 #  recipe to execute (from 'Makefile', line 35):
-	i686-linux-gnu-gcc $(INCLUDES) $(FLAGS) -std=gnu99 -c ./src/vga.c -o ./build/vga.o
+	i686-linux-gnu-gcc $(INCLUDES) $(FLAGS) -std=gnu99 -c ./src/vga/vga.c -o ./build/vga.o
 	
+
+# Not a target:
+src/memory/memory.c:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
 
 build/kernel.S.o: src/kernel.S
 #  Implicit rule search has not been done.
-#  Last modified 2022-07-02 06:12:13.282979071
+#  Last modified 2022-07-03 01:59:37.094505218
 #  File has been updated.
 #  Successfully updated.
 #  recipe to execute (from 'Makefile', line 29):
@@ -375,20 +415,26 @@ build/kernel.S.o: src/kernel.S
 #  Modification time never checked.
 #  File has not been updated.
 
+# Not a target:
+src/idt/idt.c:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
 # files hash-table stats:
-# Load=16/1024=2%, Rehash=0, Collisions=0/42=0%
+# Load=22/1024=2%, Rehash=0, Collisions=0/57=0%
 # VPATH Search Paths
 
 # No 'vpath' search paths.
 
 # No general ('VPATH' variable) search path.
 
-# strcache buffers: 1 (0) / strings = 27 / storage = 254 B / avg = 9 B
-# current buf: size = 8162 B / used = 254 B / count = 27 / avg = 9 B
+# strcache buffers: 1 (0) / strings = 33 / storage = 347 B / avg = 10 B
+# current buf: size = 8162 B / used = 347 B / count = 33 / avg = 10 B
 
-# strcache performance: lookups = 47 / hit rate = 42%
+# strcache performance: lookups = 59 / hit rate = 44%
 # hash-table stats:
-# Load=27/8192=0%, Rehash=0, Collisions=0/47=0%
-# Finished Make data base on Sat Jul  2 06:12:36 2022
+# Load=33/8192=0%, Rehash=0, Collisions=0/59=0%
+# Finished Make data base on Sun Jul  3 02:02:30 2022
 
  
