@@ -6,7 +6,7 @@ make all --print-data-base --no-builtin-variables --no-builtin-rules --question
 # This is free software: you are free to change and redistribute it.
 # There is NO WARRANTY, to the extent permitted by law.
 
-# Make data base, printed on Sun Jul  3 23:43:42 2022
+# Make data base, printed on Mon Jul  4 00:41:02 2022
 
 # Variables
 
@@ -139,7 +139,7 @@ VSCODE_LOG_NATIVE = false
 # environment
 USERNAME = reaur
 # makefile (from 'Makefile', line 1)
-FILES = ./build/kernel.S.o ./build/kernel.o ./build/vga.o ./build/idt.S.o ./build/idt.o ./build/memory.o ./build/heap.o
+FILES = ./build/kernel.S.o ./build/kernel.o ./build/vga.o ./build/idt.S.o ./build/idt.o ./build/memory.o ./build/heap.o ./build/kheap.o
 # environment
 LESSCLOSE = /usr/bin/lesspipe %s %s
 # automatic
@@ -267,7 +267,12 @@ build/idt.o: src/idt/idt.c
 #  recipe to execute (from 'Makefile', line 35):
 	i686-linux-gnu-gcc $(INCLUDES) $(FLAGS) -std=gnu99 -c ./src/idt/idt.c -o ./build/idt.o
 
-bin/kernel.bin: build/kernel.S.o build/kernel.o build/vga.o build/idt.S.o build/idt.o build/memory.o build/heap.o
+build/kheap.o: src/memory/heap/kheap.c
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+bin/kernel.bin: build/kernel.S.o build/kernel.o build/vga.o build/idt.S.o build/idt.o build/memory.o build/heap.o build/kheap.o
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
@@ -299,14 +304,13 @@ debug:
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
-#  recipe to execute (from 'Makefile', line 52):
+#  recipe to execute (from 'Makefile', line 54):
 	qemu-system-x86_64 -hda ./bin/os.bin -S
 
 # Not a target:
 Makefile:
 #  Implicit rule search has been done.
- 
-#  Last modified 2022-07-03 23:42:14.810784019
+#  Last modified 2022-07-04 00:41:01.171338183
 #  File has been updated.
 #  Successfully updated.
 
@@ -316,6 +320,7 @@ build/memory.o: src/memory/memory.c
 #  File has not been updated.
 #  recipe to execute (from 'Makefile', line 38):
 	i686-linux-gnu-gcc $(INCLUDES) $(FLAGS) -std=gnu99 -c ./src/memory/memory.c -o ./build/memory.o	
+ 
 
 # Not a target:
 src/kernel.S:
@@ -327,9 +332,15 @@ clean:
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
-#  recipe to execute (from 'Makefile', line 45):
+#  recipe to execute (from 'Makefile', line 47):
 	rm -rf ./bin/*.bin
 	rm -rf ./build/*.o
+
+# Not a target:
+src/memory/heap/kheap.c:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
 
 build/kernel.o: src/kernel.c
 #  Implicit rule search has not been done.
@@ -380,7 +391,7 @@ run:
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
-#  recipe to execute (from 'Makefile', line 49):
+#  recipe to execute (from 'Makefile', line 51):
 	qemu-system-x86_64 -hda ./bin/os.bin
 
 build/heap.o: src/memory/heap/heap.c
@@ -424,19 +435,19 @@ src/idt/idt.c:
 #  File has not been updated.
 
 # files hash-table stats:
-# Load=24/1024=2%, Rehash=0, Collisions=0/62=0%
+# Load=26/1024=3%, Rehash=0, Collisions=0/67=0%
 # VPATH Search Paths
 
 # No 'vpath' search paths.
 
 # No general ('VPATH' variable) search path.
 
-# strcache buffers: 1 (0) / strings = 35 / storage = 383 B / avg = 10 B
-# current buf: size = 8162 B / used = 383 B / count = 35 / avg = 10 B
+# strcache buffers: 1 (0) / strings = 37 / storage = 421 B / avg = 11 B
+# current buf: size = 8162 B / used = 421 B / count = 37 / avg = 11 B
 
-# strcache performance: lookups = 63 / hit rate = 44%
+# strcache performance: lookups = 67 / hit rate = 44%
 # hash-table stats:
-# Load=35/8192=0%, Rehash=0, Collisions=0/63=0%
-# Finished Make data base on Sun Jul  3 23:43:42 2022
+# Load=37/8192=0%, Rehash=0, Collisions=0/67=0%
+# Finished Make data base on Mon Jul  4 00:41:02 2022
 
  
