@@ -9,9 +9,8 @@ static uint16_t(*vga_base_addr) = 0x0;
 static uint16_t vga_row_index = 0;
 static uint16_t vga_col_index = 0;
 
-
-
-static uint16_t make_char(char character, color_t color);
+static void println_internal(char(*), color_t);
+static uint16_t make_char(char, color_t);
 static void new_line();
 
 static uint16_t make_char(char character, color_t color)
@@ -42,29 +41,24 @@ void init_vga()
 
 void println(char(*char_buff))
 {
-    if (vga_row_index >= VGA_MAX_ROW) // recycle vga
-        init_vga();
-
-    int index = 0;
-    while (char_buff[index]) // check null terminator ('\0')
-    {
-        if (vga_col_index >= VGA_MAX_COL) // check end of max column
-            new_line();
-
-        if (char_buff[index] == '\n') // check new line
-        {
-            new_line();
-            index++;
-        }
-
-        vga_base_addr[vga_row_index * VGA_MAX_COL + vga_col_index] = make_char(char_buff[index], WHITE);
-        index++;
-        vga_col_index++;
-    }
-    new_line();
+    println_internal(char_buff, WHITE);
 }
 
-void println_color(char(*char_buff), color_t color)
+void panic(char(*char_buff))
+{
+    println_internal(char_buff, RED);
+    while (1)
+    {
+    }
+}
+
+static void new_line()
+{
+    vga_col_index = 0; // reset column
+    vga_row_index++;   // new row
+}
+
+static void println_internal(char(*char_buff), color_t color)
 {
     if (vga_row_index >= VGA_MAX_ROW) // recycle vga
         init_vga();
@@ -86,18 +80,4 @@ void println_color(char(*char_buff), color_t color)
         vga_col_index++;
     }
     new_line();
-}
-
-void panic(char(*msg))
-{
-    println_color(msg,RED);
-    while (1)
-    {
-    }
-}
-
-static void new_line()
-{
-    vga_col_index = 0; // reset column
-    vga_row_index++;   // new row
 }
