@@ -24,4 +24,5 @@ struct heap
     void(*heap_base_addr);
 };
 
+extern int init_heap(struct heap(*heap), void (*ptr), void (*end), struct heap_info (*h_info));
 #endif
