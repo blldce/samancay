@@ -9,8 +9,8 @@ static struct heap_info k_heap_info;
 
 void init_kheap()
 {
-    k_heap_info.heap_info_base_addr = (unsigned char(*))HEAP_INFO_BUFFER_BASE_ADDRESS;
-    k_heap_info.total_entries = TOTAL_HEAP_ENTRIES;
+    k_heap_info.heap_info_base_addr = (unsigned char(*))HEAP_INFO_BASE_ADDRESS;
+    k_heap_info.total_heap_entries = TOTAL_HEAP_ENTRIES;
 
     void(*heap_end_addr) = (void(*))(HEAP_BASE_ADDRESS + TOTAL_HEAP_SIZE_IN_BYTES);
 
