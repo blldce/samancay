@@ -11,7 +11,6 @@ typedef enum
 
 extern void init_vga();
 extern void println(char(*));
-extern void println_color(char(*), color_t);
 extern void panic(char(*));
 
 
