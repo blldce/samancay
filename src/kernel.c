@@ -1,6 +1,5 @@
 #include "kernel.h"
 #include "vga/vga.h"
-#include "idt/idt.h"
 
 void kernel_main()
 {
