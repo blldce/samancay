@@ -3,7 +3,6 @@
 
 #include <stdint.h>
 #include <stddef.h>
-#include "heap.h"
 
 // Bit fields of Heap Info
 #define HEAP_INFO_ENTRY_FREE 0x00
