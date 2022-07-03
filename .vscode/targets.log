@@ -6,7 +6,7 @@ make all --print-data-base --no-builtin-variables --no-builtin-rules --question
 # This is free software: you are free to change and redistribute it.
 # There is NO WARRANTY, to the extent permitted by law.
 
-# Make data base, printed on Sun Jul  3 02:02:30 2022
+# Make data base, printed on Sun Jul  3 23:43:42 2022
 
 # Variables
 
@@ -94,9 +94,9 @@ VSCODE_PID = 3048
 XDG_SESSION_TYPE = x11
 # automatic
 ?D = $(patsubst %/,%,$(dir $?))
-# makefile (from 'Makefile', line 9)
+# makefile (from 'Makefile', line 3)
 FLAGS = -g -ffreestanding -falign-jumps -falign-functions -falign-labels -falign-loops -fstrength-reduce -fomit-frame-pointer -finline-functions -Wno-unused-function -fno-builtin -Werror -Wno-unused-label -Wno-cpp -Wno-unused-parameter -nodefaultlibs -nostdlib -nostartfiles -nolibc -nodefaultlibs -Wall -O0 -Iinc
-# makefile (from 'Makefile', line 8)
+# makefile (from 'Makefile', line 2)
 INCLUDES = -I./src
 # environment
 SESSION_MANAGER = local/pop-os:@/tmp/.ICE-unix/2272,unix/pop-os:/tmp/.ICE-unix/2272
@@ -138,8 +138,8 @@ MAKEFILES :=
 VSCODE_LOG_NATIVE = false
 # environment
 USERNAME = reaur
-# makefile (from 'Makefile', line 7)
-FILES = ./build/kernel.S.o ./build/kernel.o ./build/vga.o ./build/idt.S.o ./build/idt.o ./build/memory.o
+# makefile (from 'Makefile', line 1)
+FILES = ./build/kernel.S.o ./build/kernel.o ./build/vga.o ./build/idt.S.o ./build/idt.o ./build/memory.o ./build/heap.o
 # environment
 LESSCLOSE = /usr/bin/lesspipe %s %s
 # automatic
@@ -235,84 +235,78 @@ GDMSESSION = pop
 
 bin/boot.bin: src/boot/boot.S
 #  Implicit rule search has not been done.
-#  Last modified 2022-07-03 01:59:37.094505218
+#  Implicit/static pattern stem: ''
+#  File does not exist.
 #  File has been updated.
-#  Successfully updated.
-#  recipe to execute (from 'Makefile', line 19):
+#  Needs to be updated (-q is set).
+# automatic
+# @ := bin/boot.bin
+# automatic
+# * := 
+# automatic
+# < := src/boot/boot.S
+# automatic
+# + := src/boot/boot.S
+# automatic
+# % := 
+# automatic
+# ^ := src/boot/boot.S
+# automatic
+# ? := src/boot/boot.S
+# automatic
+# | := 
+# variable set hash-table stats:
+# Load=8/32=25%, Rehash=0, Collisions=1/11=9%
+#  recipe to execute (from 'Makefile', line 13):
 	nasm -f bin ./src/boot/boot.S -o ./bin/boot.bin
 
 build/idt.o: src/idt/idt.c
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
-#  recipe to execute (from 'Makefile', line 41):
+#  recipe to execute (from 'Makefile', line 35):
 	i686-linux-gnu-gcc $(INCLUDES) $(FLAGS) -std=gnu99 -c ./src/idt/idt.c -o ./build/idt.o
 
-bin/kernel.bin: build/kernel.S.o build/kernel.o build/vga.o build/idt.S.o build/idt.o build/memory.o
+bin/kernel.bin: build/kernel.S.o build/kernel.o build/vga.o build/idt.S.o build/idt.o build/memory.o build/heap.o
 #  Implicit rule search has not been done.
-#  Last modified 2022-07-03 01:59:37.178530808
-#  File has been updated.
-#  Needs to be updated (-q is set).
-# variable set hash-table stats:
-# Load=0/32=0%, Rehash=0, Collisions=0/3=0%
-#  recipe to execute (from 'Makefile', line 23):
+#  Modification time never checked.
+#  File has not been updated.
+#  recipe to execute (from 'Makefile', line 17):
 	i686-linux-gnu-ld -g $(FILES) -o ./build/kernelfull.o
 	i686-linux-gnu-gcc $(FLAGS) -T ./src/linker.ld -o ./bin/kernel.bin ./build/kernelfull.o
 
 # Not a target:
 src/idt/idt.S:
-#  Implicit rule search has been done.
-#  Last modified 2022-07-03 02:00:15.490239244
-#  File has been updated.
-#  Successfully updated.
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
 
 build/idt.S.o: src/idt/idt.S
 #  Implicit rule search has not been done.
-#  Implicit/static pattern stem: ''
-#  Last modified 2022-07-03 01:59:37.134517404
-#  File has been updated.
-#  Needs to be updated (-q is set).
-# automatic
-# @ := build/idt.S.o
-# automatic
-# * := 
-# automatic
-# < := src/idt/idt.S
-# automatic
-# + := src/idt/idt.S
-# automatic
-# % := 
-# automatic
- 
-# ^ := src/idt/idt.S
-# automatic
-# ? := src/idt/idt.S
-# automatic
-# | := 
-# variable set hash-table stats:
-# Load=8/32=25%, Rehash=0, Collisions=1/11=9%
-#  recipe to execute (from 'Makefile', line 38):
+#  Modification time never checked.
+#  File has not been updated.
+#  recipe to execute (from 'Makefile', line 32):
 	nasm -f elf -g ./src/idt/idt.S -o ./build/idt.S.o
 	
 
 # Not a target:
 src/vga/vga.c:
-#  Implicit rule search has been done.
-#  Last modified 2022-07-03 01:41:54.060899575
-#  File has been updated.
-#  Successfully updated.
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
 
 debug:
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
-#  recipe to execute (from 'Makefile', line 56):
+#  recipe to execute (from 'Makefile', line 52):
 	qemu-system-x86_64 -hda ./bin/os.bin -S
 
 # Not a target:
 Makefile:
 #  Implicit rule search has been done.
-#  Last modified 2022-07-03 02:01:00.820162825
+ 
+#  Last modified 2022-07-03 23:42:14.810784019
 #  File has been updated.
 #  Successfully updated.
 
@@ -320,30 +314,28 @@ build/memory.o: src/memory/memory.c
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
-#  recipe to execute (from 'Makefile', line 44):
+#  recipe to execute (from 'Makefile', line 38):
 	i686-linux-gnu-gcc $(INCLUDES) $(FLAGS) -std=gnu99 -c ./src/memory/memory.c -o ./build/memory.o	
 
 # Not a target:
 src/kernel.S:
-#  Implicit rule search has been done.
-#  Last modified 2022-07-01 23:27:27.731198366
-#  File has been updated.
-#  Successfully updated.
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
 
 clean:
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
-#  recipe to execute (from 'Makefile', line 49):
+#  recipe to execute (from 'Makefile', line 45):
 	rm -rf ./bin/*.bin
 	rm -rf ./build/*.o
 
 build/kernel.o: src/kernel.c
 #  Implicit rule search has not been done.
-#  Last modified 2022-07-03 01:59:37.110510092
-#  File has been updated.
-#  Successfully updated.
-#  recipe to execute (from 'Makefile', line 32):
+#  Modification time never checked.
+#  File has not been updated.
+#  recipe to execute (from 'Makefile', line 26):
 	i686-linux-gnu-gcc $(INCLUDES) $(FLAGS) -std=gnu99 -c ./src/kernel.c -o ./build/kernel.o
 
 # Not a target:
@@ -355,10 +347,9 @@ src/boot/boot.S:
 
 # Not a target:
 src/kernel.c:
-#  Implicit rule search has been done.
-#  Last modified 2022-07-03 01:59:32.369066961
-#  File has been updated.
-#  Successfully updated.
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
 
 # Not a target:
 .DEFAULT:
@@ -374,24 +365,36 @@ all: bin/boot.bin bin/kernel.bin
 #  Needs to be updated (-q is set).
 # variable set hash-table stats:
 # Load=0/32=0%, Rehash=0, Collisions=0/3=0%
-#  recipe to execute (from 'Makefile', line 13):
+#  recipe to execute (from 'Makefile', line 7):
 	dd if=./bin/boot.bin >> ./bin/os.bin
 	dd if=./bin/kernel.bin >> ./bin/os.bin
 	dd if=/dev/zero bs=512 count=100 >> ./bin/os.bin
+
+# Not a target:
+src/memory/heap/heap.c:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
 
 run:
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
-#  recipe to execute (from 'Makefile', line 53):
+#  recipe to execute (from 'Makefile', line 49):
 	qemu-system-x86_64 -hda ./bin/os.bin
+
+build/heap.o: src/memory/heap/heap.c
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+#  recipe to execute (from 'Makefile', line 41):
+	i686-linux-gnu-gcc $(INCLUDES) $(FLAGS) -std=gnu99 -c ./src/memory/heap/heap.c -o ./build/heap.o
 
 build/vga.o: src/vga/vga.c
 #  Implicit rule search has not been done.
-#  Last modified 2022-07-03 01:59:37.130516185
-#  File has been updated.
-#  Successfully updated.
-#  recipe to execute (from 'Makefile', line 35):
+#  Modification time never checked.
+#  File has not been updated.
+#  recipe to execute (from 'Makefile', line 29):
 	i686-linux-gnu-gcc $(INCLUDES) $(FLAGS) -std=gnu99 -c ./src/vga/vga.c -o ./build/vga.o
 	
 
@@ -403,10 +406,9 @@ src/memory/memory.c:
 
 build/kernel.S.o: src/kernel.S
 #  Implicit rule search has not been done.
-#  Last modified 2022-07-03 01:59:37.094505218
-#  File has been updated.
-#  Successfully updated.
-#  recipe to execute (from 'Makefile', line 29):
+#  Modification time never checked.
+#  File has not been updated.
+#  recipe to execute (from 'Makefile', line 23):
 	nasm -f elf -g ./src/kernel.S -o ./build/kernel.S.o
 
 # Not a target:
@@ -422,19 +424,19 @@ src/idt/idt.c:
 #  File has not been updated.
 
 # files hash-table stats:
-# Load=22/1024=2%, Rehash=0, Collisions=0/57=0%
+# Load=24/1024=2%, Rehash=0, Collisions=0/62=0%
 # VPATH Search Paths
 
 # No 'vpath' search paths.
 
 # No general ('VPATH' variable) search path.
 
-# strcache buffers: 1 (0) / strings = 33 / storage = 347 B / avg = 10 B
-# current buf: size = 8162 B / used = 347 B / count = 33 / avg = 10 B
+# strcache buffers: 1 (0) / strings = 35 / storage = 383 B / avg = 10 B
+# current buf: size = 8162 B / used = 383 B / count = 35 / avg = 10 B
 
-# strcache performance: lookups = 59 / hit rate = 44%
+# strcache performance: lookups = 63 / hit rate = 44%
 # hash-table stats:
-# Load=33/8192=0%, Rehash=0, Collisions=0/59=0%
-# Finished Make data base on Sun Jul  3 02:02:30 2022
+# Load=35/8192=0%, Rehash=0, Collisions=0/63=0%
+# Finished Make data base on Sun Jul  3 23:43:42 2022
 
  
