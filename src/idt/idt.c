@@ -1,11 +1,9 @@
 #include "idt.h"
 #include "memory.h"
 #include "../vga/vga.h"
+#include "../config/config.h"
 
-#define KERNEL_CODE_SELECTOR 0x08 // from kernel.S
-#define KERNEL_DATA_SELECTOR 0x10 // from kernel.S
 
-#define TOTAL_INTERRUPTS 512
 
 static struct idt_desc idt_descriptors[TOTAL_INTERRUPTS];
 static struct idtr_desc idtr_descriptor;
