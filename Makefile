@@ -1,9 +1,3 @@
-
-# https://wiki.osdev.org/GCC_Cross-Compiler go to Prebuilt Toolchains 
-# linux : sudo apt-get install gcc-i686-linux-gnu
-# macos : brew install i686-elf-gcc
-
-
 FILES = ./build/kernel.S.o ./build/kernel.o ./build/vga.o ./build/idt.S.o ./build/idt.o ./build/memory.o ./build/heap.o
 INCLUDES = -I./src
 FLAGS = -g -ffreestanding -falign-jumps -falign-functions -falign-labels -falign-loops -fstrength-reduce -fomit-frame-pointer -finline-functions -Wno-unused-function -fno-builtin -Werror -Wno-unused-label -Wno-cpp -Wno-unused-parameter -nodefaultlibs -nostdlib -nostartfiles -nolibc -nodefaultlibs -Wall -O0 -Iinc
