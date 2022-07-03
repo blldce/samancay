@@ -3,6 +3,7 @@
     "files.associations": {
         "kernel.h": "c",
         "stdint.h": "c",
-        "vga.h": "c"
+        "vga.h": "c",
+        "memory.h": "c"
     }
 }
