@@ -4,7 +4,7 @@
 # macos : brew install i686-elf-gcc
 
 
-FILES = ./build/kernel.S.o ./build/kernel.o ./build/vga.o ./build/idt.S.o ./build/idt.o ./build/memory.o
+FILES = ./build/kernel.S.o ./build/kernel.o ./build/vga.o ./build/idt.S.o ./build/idt.o ./build/memory.o ./build/heap.o
 INCLUDES = -I./src
 FLAGS = -g -ffreestanding -falign-jumps -falign-functions -falign-labels -falign-loops -fstrength-reduce -fomit-frame-pointer -finline-functions -Wno-unused-function -fno-builtin -Werror -Wno-unused-label -Wno-cpp -Wno-unused-parameter -nodefaultlibs -nostdlib -nostartfiles -nolibc -nodefaultlibs -Wall -O0 -Iinc
 
@@ -43,6 +43,8 @@ all: ./bin/boot.bin ./bin/kernel.bin
 ./build/memory.o: ./src/memory/memory.c
 	i686-linux-gnu-gcc $(INCLUDES) $(FLAGS) -std=gnu99 -c ./src/memory/memory.c -o ./build/memory.o	
 
+./build/heap.o : ./src/memory/heap/heap.c
+	i686-linux-gnu-gcc $(INCLUDES) $(FLAGS) -std=gnu99 -c ./src/memory/heap/heap.c -o ./build/heap.o
 
 
 clean:
