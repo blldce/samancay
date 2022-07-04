@@ -10,6 +10,7 @@ static uint32_t align_size_to_upper(uint32_t);
 static void *process_heap_entries(struct heap(*), uint32_t);
 static int get_start_entry(struct heap(*), uint32_t);
 static void mark_entries_taken(struct heap(*), int, int);
+static void mark_entries_free(struct heap(*), int);
 
 int init_heap(struct heap(*heap), void(*heap_base_addr), void(*heap_end_addr), struct heap_info(*heap_info))
 {
@@ -69,7 +70,7 @@ static void *process_heap_entries(struct heap(*heap), uint32_t required_entries)
     int start_entry_index = get_start_entry(heap, required_entries);
     if (start_entry_index < 0)
         goto out;
-    
+
     return_address = heap->heap_base_addr + (start_entry_index * HEAP_ENTRY_SIZE_IN_BYTES);
 
     // marks entries as taken
@@ -92,7 +93,7 @@ static int get_start_entry(struct heap(*heap), uint32_t required_entries)
     while (index < heap_info->total_heap_entries) // iterate entire entries to find free entries
     {
         int entry_type = heap_info->heap_info_base_addr[index] & 0b1111; // return last 4 bits of entry
-        
+
         if (entry_type != HEAP_INFO_ENTRY_FREE)
         {
             // reset counters
@@ -109,7 +110,7 @@ static int get_start_entry(struct heap(*heap), uint32_t required_entries)
 
         if (target == required_entries)
             break;
-        
+
         index++;
     }
 
@@ -137,6 +138,24 @@ static void mark_entries_taken(struct heap(*heap), int start_entry, int total_en
     }
 }
 
-void heap_free(struct heap(*heap), void(*ptr))
+void heap_free(struct heap(*heap), void(*addr))
 {
+    int start_entry = (((addr - heap->heap_base_addr)) / HEAP_ENTRY_SIZE_IN_BYTES);
+    mark_entries_free(heap, start_entry);
+}
+
+static void mark_entries_free(struct heap(*heap), int start_entry)
+{
+    struct heap_info *heap_info = heap->heap_info;
+    int index = start_entry;
+    while (index < heap_info->total_heap_entries)
+    {
+        unsigned char entry = heap_info->heap_info_base_addr[index];
+        heap_info->heap_info_base_addr[index] = HEAP_INFO_ENTRY_FREE;
+        if (!(entry & HEAP_INFO_ENTRY_HAS_NEXT))
+        {
+            break;
+        }
+        index++;
+    }
 }

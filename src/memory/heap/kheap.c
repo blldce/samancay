@@ -19,7 +19,12 @@ void init_kheap()
     }
 }
 
-extern void* kmalloc(size_t size)
+extern void *kmalloc(size_t size)
 {
     return heap_malloc(&k_heap, size);
+}
+
+void kfree(void(*ptr))
+{
+    heap_free(&k_heap, ptr);
 }
