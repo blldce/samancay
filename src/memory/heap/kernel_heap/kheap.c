@@ -1,5 +1,6 @@
 #include "kheap.h"
 #include "../heap_core.h"
+#include "../../../memory/memory.h"
 #include "../../../config/config.h"
 
 static struct heap k_heap;
@@ -16,6 +17,15 @@ void init_kheap()
 void *kmalloc(size_t size)
 {
     return heap_malloc(&k_heap, size);
+}
+
+void *kzalloc(size_t size)
+{
+    void(*ptr) = kmalloc(size);
+    if (!ptr)
+        return 0;
+    memset(ptr, 0x00, size);
+    return ptr;
 }
 
 void kfree(void(*ptr))
