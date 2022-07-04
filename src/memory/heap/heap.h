@@ -4,13 +4,34 @@
 #include <stdint.h>
 #include <stddef.h>
 
+
+/*
+Info Entry : 8 bit  | Has_Next | Is_First | 0 | 0 |   
+Heap Info Base Address  .......
+                        .  1  .  Info Entry 1
+                        ....... 
+                        .  1  .  Info Entry 2
+                        ....... 
+                          ... 
+
+
+Heap Base Address ........
+                  . 4096 . Heap Entry 1
+                  ........
+                  . 4096 . Heap Entry 2
+                  ........
+                  . 4096 . Heap Entry 3
+                  ........
+                    ... 
+*/
+
 // Bit fields of Heap Info
 #define HEAP_INFO_ENTRY_FREE 0x00
 #define HEAP_INFO_ENTRY_TAKEN 0x01
 
 // Bit Masks of Heap Info
 #define HEAP_INFO_ENTRY_HAS_NEXT 0b10000000
-#define HEAP_INFO_ENTRY_IS_FREE 0b01000000
+#define HEAP_INFO_ENTRY_IS_FIRST 0b01000000
 
 struct heap_info
 {

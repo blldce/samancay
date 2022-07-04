@@ -6,7 +6,7 @@ make all --print-data-base --no-builtin-variables --no-builtin-rules --question
 # This is free software: you are free to change and redistribute it.
 # There is NO WARRANTY, to the extent permitted by law.
 
-# Make data base, printed on Mon Jul  4 00:42:35 2022
+# Make data base, printed on Mon Jul  4 04:30:33 2022
 
 # Variables
 
@@ -215,6 +215,7 @@ XDG_MENU_PREFIX = gnome-
 # environment
 GDMSESSION = pop
 # variable set hash-table stats:
+ 
 # Load=102/1024=10%, Rehash=0, Collisions=10/136=7%
 
 # Pattern-specific Variable Values
@@ -235,100 +236,88 @@ GDMSESSION = pop
 
 bin/boot.bin: src/boot/boot.S
 #  Implicit rule search has not been done.
-#  Implicit/static pattern stem: ''
-#  File does not exist.
+#  Last modified 2022-07-04 04:18:20.210972424
 #  File has been updated.
-#  Needs to be updated (-q is set).
-# automatic
-# @ := bin/boot.bin
-# automatic
-# * := 
-# automatic
-# < := src/boot/boot.S
-# automatic
-# + := src/boot/boot.S
-# automatic
-# % := 
-# automatic
-# ^ := src/boot/boot.S
-# automatic
-# ? := src/boot/boot.S
-# automatic
-# | := 
-# variable set hash-table stats:
-# Load=8/32=25%, Rehash=0, Collisions=1/11=9%
+#  Successfully updated.
 #  recipe to execute (from 'Makefile', line 13):
 	nasm -f bin ./src/boot/boot.S -o ./bin/boot.bin
 
 build/idt.o: src/idt/idt.c
 #  Implicit rule search has not been done.
-#  Modification time never checked.
-#  File has not been updated.
+#  Last modified 2022-07-04 04:18:20.258972454
+#  File has been updated.
+#  Successfully updated.
 #  recipe to execute (from 'Makefile', line 35):
 	i686-linux-gnu-gcc $(INCLUDES) $(FLAGS) -std=gnu99 -c ./src/idt/idt.c -o ./build/idt.o
 
 build/kheap.o: src/memory/heap/kheap.c
 #  Implicit rule search has not been done.
-#  Modification time never checked.
-#  File has not been updated.
+#  Last modified 2022-07-04 04:18:20.302972483
+#  File has been updated.
+#  Successfully updated.
 #  recipe to execute (from 'Makefile', line 44):
 	i686-linux-gnu-gcc $(INCLUDES) $(FLAGS) -std=gnu99 -c ./src/memory/heap/kheap.c -o ./build/kheap.o
 
 bin/kernel.bin: build/kernel.S.o build/kernel.o build/vga.o build/idt.S.o build/idt.o build/memory.o build/heap.o build/kheap.o
 #  Implicit rule search has not been done.
-#  Modification time never checked.
-#  File has not been updated.
+#  Last modified 2022-07-04 04:18:20.306972485
+#  File has been updated.
+#  Successfully updated.
 #  recipe to execute (from 'Makefile', line 17):
 	i686-linux-gnu-ld -g $(FILES) -o ./build/kernelfull.o
 	i686-linux-gnu-gcc $(FLAGS) -T ./src/linker.ld -o ./bin/kernel.bin ./build/kernelfull.o
 
 # Not a target:
 src/idt/idt.S:
-#  Implicit rule search has not been done.
-#  Modification time never checked.
-#  File has not been updated.
+#  Implicit rule search has been done.
+#  Last modified 2022-07-03 02:23:02.459220322
+#  File has been updated.
+#  Successfully updated.
 
 build/idt.S.o: src/idt/idt.S
 #  Implicit rule search has not been done.
-#  Modification time never checked.
-#  File has not been updated.
+#  Last modified 2022-07-04 04:18:20.246972447
+#  File has been updated.
+#  Successfully updated.
 #  recipe to execute (from 'Makefile', line 32):
 	nasm -f elf -g ./src/idt/idt.S -o ./build/idt.S.o
 	
 
 # Not a target:
 src/vga/vga.c:
-#  Implicit rule search has not been done.
-#  Modification time never checked.
-#  File has not been updated.
+#  Implicit rule search has been done.
+#  Last modified 2022-07-03 16:04:32.22801966
+#  File has been updated.
+#  Successfully updated.
 
 debug:
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
 #  recipe to execute (from 'Makefile', line 54):
-	qemu-system-x86_64 -hda ./bin/os.bin -S
+	qemu-system-i386 -hda ./bin/os.bin -S -gdb stdio
 
 # Not a target:
 Makefile:
 #  Implicit rule search has been done.
- 
-#  Last modified 2022-07-04 00:41:19.25134846
+#  Last modified 2022-07-04 04:27:25.888103505
 #  File has been updated.
 #  Successfully updated.
 
 build/memory.o: src/memory/memory.c
 #  Implicit rule search has not been done.
-#  Modification time never checked.
-#  File has not been updated.
+#  Last modified 2022-07-04 04:18:20.274972465
+#  File has been updated.
+#  Successfully updated.
 #  recipe to execute (from 'Makefile', line 38):
 	i686-linux-gnu-gcc $(INCLUDES) $(FLAGS) -std=gnu99 -c ./src/memory/memory.c -o ./build/memory.o	
 
 # Not a target:
 src/kernel.S:
-#  Implicit rule search has not been done.
-#  Modification time never checked.
-#  File has not been updated.
+#  Implicit rule search has been done.
+#  Last modified 2022-07-01 23:27:27.731198366
+#  File has been updated.
+#  Successfully updated.
 
 clean:
 #  Implicit rule search has not been done.
@@ -340,14 +329,16 @@ clean:
 
 # Not a target:
 src/memory/heap/kheap.c:
-#  Implicit rule search has not been done.
-#  Modification time never checked.
-#  File has not been updated.
+#  Implicit rule search has been done.
+#  Last modified 2022-07-04 04:12:18.610765383
+#  File has been updated.
+#  Successfully updated.
 
 build/kernel.o: src/kernel.c
 #  Implicit rule search has not been done.
-#  Modification time never checked.
-#  File has not been updated.
+#  Last modified 2022-07-04 04:18:20.226972434
+#  File has been updated.
+#  Successfully updated.
 #  recipe to execute (from 'Makefile', line 26):
 	i686-linux-gnu-gcc $(INCLUDES) $(FLAGS) -std=gnu99 -c ./src/kernel.c -o ./build/kernel.o
 
@@ -360,9 +351,10 @@ src/boot/boot.S:
 
 # Not a target:
 src/kernel.c:
-#  Implicit rule search has not been done.
-#  Modification time never checked.
-#  File has not been updated.
+#  Implicit rule search has been done.
+#  Last modified 2022-07-04 04:18:12.218967322
+#  File has been updated.
+#  Successfully updated.
 
 # Not a target:
 .DEFAULT:
@@ -373,11 +365,28 @@ src/kernel.c:
 all: bin/boot.bin bin/kernel.bin
 #  Command line target.
 #  Implicit rule search has not been done.
+#  Implicit/static pattern stem: ''
 #  File does not exist.
 #  File has been updated.
 #  Needs to be updated (-q is set).
+# automatic
+# @ := all
+# automatic
+# * := 
+# automatic
+# < := bin/boot.bin
+# automatic
+# + := bin/boot.bin bin/kernel.bin
+# automatic
+# % := 
+# automatic
+# ^ := bin/boot.bin bin/kernel.bin
+# automatic
+# ? := bin/boot.bin bin/kernel.bin
+# automatic
+# | := 
 # variable set hash-table stats:
-# Load=0/32=0%, Rehash=0, Collisions=0/3=0%
+# Load=8/32=25%, Rehash=0, Collisions=1/11=9%
 #  recipe to execute (from 'Makefile', line 7):
 	dd if=./bin/boot.bin >> ./bin/os.bin
 	dd if=./bin/kernel.bin >> ./bin/os.bin
@@ -385,9 +394,10 @@ all: bin/boot.bin bin/kernel.bin
 
 # Not a target:
 src/memory/heap/heap.c:
-#  Implicit rule search has not been done.
-#  Modification time never checked.
-#  File has not been updated.
+#  Implicit rule search has been done.
+#  Last modified 2022-07-04 04:13:59.55881744
+#  File has been updated.
+#  Successfully updated.
 
 run:
 #  Implicit rule search has not been done.
@@ -398,29 +408,33 @@ run:
 
 build/heap.o: src/memory/heap/heap.c
 #  Implicit rule search has not been done.
-#  Modification time never checked.
-#  File has not been updated.
+#  Last modified 2022-07-04 04:18:20.290972475
+#  File has been updated.
+#  Successfully updated.
 #  recipe to execute (from 'Makefile', line 41):
 	i686-linux-gnu-gcc $(INCLUDES) $(FLAGS) -std=gnu99 -c ./src/memory/heap/heap.c -o ./build/heap.o
 
 build/vga.o: src/vga/vga.c
 #  Implicit rule search has not been done.
-#  Modification time never checked.
-#  File has not been updated.
+#  Last modified 2022-07-04 04:18:20.242972444
+#  File has been updated.
+#  Successfully updated.
 #  recipe to execute (from 'Makefile', line 29):
 	i686-linux-gnu-gcc $(INCLUDES) $(FLAGS) -std=gnu99 -c ./src/vga/vga.c -o ./build/vga.o
 	
 
 # Not a target:
 src/memory/memory.c:
-#  Implicit rule search has not been done.
-#  Modification time never checked.
-#  File has not been updated.
+#  Implicit rule search has been done.
+#  Last modified 2022-07-03 02:23:02.459220322
+#  File has been updated.
+#  Successfully updated.
 
 build/kernel.S.o: src/kernel.S
 #  Implicit rule search has not been done.
-#  Modification time never checked.
-#  File has not been updated.
+#  Last modified 2022-07-04 04:18:20.214972426
+#  File has been updated.
+#  Successfully updated.
 #  recipe to execute (from 'Makefile', line 23):
 	nasm -f elf -g ./src/kernel.S -o ./build/kernel.S.o
 
@@ -432,9 +446,10 @@ build/kernel.S.o: src/kernel.S
 
 # Not a target:
 src/idt/idt.c:
-#  Implicit rule search has not been done.
-#  Modification time never checked.
-#  File has not been updated.
+#  Implicit rule search has been done.
+#  Last modified 2022-07-04 01:00:57.432278377
+#  File has been updated.
+#  Successfully updated.
 
 # files hash-table stats:
 # Load=26/1024=3%, Rehash=0, Collisions=0/67=0%
@@ -450,6 +465,6 @@ src/idt/idt.c:
 # strcache performance: lookups = 67 / hit rate = 44%
 # hash-table stats:
 # Load=37/8192=0%, Rehash=0, Collisions=0/67=0%
-# Finished Make data base on Mon Jul  4 00:42:35 2022
+# Finished Make data base on Mon Jul  4 04:30:33 2022
 
  
