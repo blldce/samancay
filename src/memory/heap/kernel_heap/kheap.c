@@ -13,7 +13,7 @@ void init_kheap()
     init_heap(&k_heap, (void(*))HEAP_BASE_ADDRESS, &k_heap_info);
 }
 
-extern void *kmalloc(size_t size)
+void *kmalloc(size_t size)
 {
     return heap_malloc(&k_heap, size);
 }
