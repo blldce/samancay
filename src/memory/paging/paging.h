@@ -13,7 +13,9 @@
 #define PAGING_IS_WRITABLE      0b00000010
 #define PAGING_IS_PRESENT       0b00000001
 
-#define TOTAL_ENTRIES_PER_TABLE 1024
+// Page table
+#define TOTAL_ENTRIES_PER_TABLE     1024
+#define ENTRY_SIZE_IN_BYTES         4096
 
 
 struct paging_4gb
