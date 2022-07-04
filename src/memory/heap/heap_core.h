@@ -1,18 +1,17 @@
-#ifndef HEAP_H
-#define HEAP_H
+#ifndef HEAP_CORE_H
+#define HEAP_CORE_H
 
 #include <stdint.h>
 #include <stddef.h>
 
-
 /*
-Info Entry : 8 bit  | Has_Next | Is_First | 0 | 0 |   
+Info Entry : 8 bit  | Has_Next | Is_First | 0 | 0 |
 Heap Info Base Address  .......
                         .  1  .  Info Entry 1
-                        ....... 
+                        .......
                         .  1  .  Info Entry 2
-                        ....... 
-                          ... 
+                        .......
+                          ...
 
 
 Heap Base Address ........
@@ -22,7 +21,7 @@ Heap Base Address ........
                   ........
                   . 4096 . Heap Entry 3
                   ........
-                    ... 
+                    ...
 */
 
 // Bit fields of Heap Info
@@ -35,17 +34,17 @@ Heap Base Address ........
 
 struct heap_info
 {
-    unsigned char(*heap_info_base_addr);
-    size_t total_heap_entries;
+  unsigned char(*heap_info_base_addr);
+  size_t total_heap_entries;
 };
 
 struct heap
 {
-    struct heap_info(*heap_info);
-    void(*heap_base_addr);
+  struct heap_info(*heap_info);
+  void(*heap_base_addr);
 };
 
-extern int init_heap(struct heap(*heap), void (*ptr), void (*heap_end_addr), struct heap_info (*heap_info));
-extern void* heap_malloc(struct heap(*),size_t);
-extern void heap_free(struct heap(*),void(*ptr));
+extern void init_heap(struct heap(*heap), void(*ptr), struct heap_info(*heap_info));
+extern void *heap_malloc(struct heap(*), size_t);
+extern void heap_free(struct heap(*), void(*ptr));
 #endif
