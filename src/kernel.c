@@ -6,8 +6,6 @@ void kernel_main()
 {
     init_vga();
 
-    println("Hi");
-
     init_kheap();
     void (*ptr) = kmalloc(5000);
      if(ptr)
@@ -15,7 +13,7 @@ void kernel_main()
 
     }
      println("Hop 1");
-    void (*ptr2) = kmalloc(5000);
+    void (*ptr2) = kmalloc(500);
     if(ptr2)
     {
 

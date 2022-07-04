@@ -66,11 +66,10 @@ static uint32_t align_size_to_upper(uint32_t size_in_bytes)
 static void *process_heap_entries(struct heap(*heap), uint32_t required_entries)
 {
     void(*return_address) = 0;
-
     int start_entry_index = get_start_entry(heap, required_entries);
     if (start_entry_index < 0)
         goto out;
-
+    
     return_address = heap->heap_base_addr + (start_entry_index * HEAP_ENTRY_SIZE_IN_BYTES);
 
     // marks entries as taken
@@ -93,11 +92,13 @@ static int get_start_entry(struct heap(*heap), uint32_t required_entries)
     while (index < heap_info->total_heap_entries) // iterate entire entries to find free entries
     {
         int entry_type = heap_info->heap_info_base_addr[index] & 0b1111; // return last 4 bits of entry
+        
         if (entry_type != HEAP_INFO_ENTRY_FREE)
         {
             // reset counters
             start_entry_index = -1;
             target = 0;
+            index++;
             continue;
         }
 
@@ -107,9 +108,8 @@ static int get_start_entry(struct heap(*heap), uint32_t required_entries)
         target++;
 
         if (target == required_entries)
-        {
             break;
-        }
+        
         index++;
     }
 
