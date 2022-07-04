@@ -4,6 +4,8 @@
         "kernel.h": "c",
         "stdint.h": "c",
         "vga.h": "c",
-        "memory.h": "c"
+        "memory.h": "c",
+        "kheap.h": "c",
+        "cstdint": "c"
     }
 }

@@ -51,4 +51,5 @@ run:
 	qemu-system-x86_64 -hda ./bin/os.bin
 
 debug:
-	qemu-system-x86_64 -hda ./bin/os.bin -S
+	qemu-system-i386 -hda ./bin/os.bin -S -gdb stdio
+

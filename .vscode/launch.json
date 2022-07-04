@@ -1,16 +1,19 @@
 {
-    // Use IntelliSense to learn about possible attributes.
-    // Hover to view descriptions of existing attributes.
-    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
     "version": "0.2.0",
     "configurations": [
         {
+            "name": "Attach to QEMU",
             "type": "gdb",
-            "request": "launch",
-            "name": "GDB",
-            "program": "${workspaceFolder}/${command:AskForProgramName}",
-            "stopOnEntry": true,
-            "arguments": ""
+            "request": "attach",
+            "executable": "./bin/os.bin",
+            "target": "localhost:1234",
+            "remote": true,
+            "gdbpath": "/usr/bin/gdb",
+            "cwd": "${workspaceRoot}",
+            "autorun": [
+                "set substitute-path /vagrant ."
+            ]
         }
     ]
 }
+

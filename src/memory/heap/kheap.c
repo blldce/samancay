@@ -21,3 +21,8 @@ void init_kheap()
         panic("Failed to create heap!!!");
     }
 }
+
+extern void* kmalloc(size_t size)
+{
+    return heap_malloc(&k_heap, size);
+}
