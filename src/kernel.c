@@ -1,6 +1,8 @@
 #include "kernel.h"
 #include "vga/vga.h"
+#include "memory/paging/paging.h"
 #include "memory/heap/kernel_heap/kheap.h"
+
 
 void kernel_main()
 {
@@ -8,14 +10,5 @@ void kernel_main()
 
     init_kheap();
 
-    void (* ptr)  = kmalloc(80000);
-    if(ptr)
-    {}
-    println("hop 1");
-
-
-    void (* ptr2)  = kmalloc(5000);
-    if(ptr2)
-    {}
-    println("hop 2");
+    println("Samancay Kernel");
 }

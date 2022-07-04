@@ -1,6 +1,7 @@
 make --dry-run --keep-going --print-directory
 make: Entering directory '/home/reaur/Desktop/git/samancay'
 dd if=./bin/boot.bin >> ./bin/os.bin
+ 
 dd if=./bin/kernel.bin >> ./bin/os.bin
 dd if=/dev/zero bs=512 count=100 >> ./bin/os.bin
 make: Leaving directory '/home/reaur/Desktop/git/samancay'
