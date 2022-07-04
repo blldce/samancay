@@ -5,9 +5,8 @@ make all --print-data-base --no-builtin-variables --no-builtin-rules --question
 # License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
 # This is free software: you are free to change and redistribute it.
 # There is NO WARRANTY, to the extent permitted by law.
- 
 
-# Make data base, printed on Mon Jul  4 19:38:45 2022
+# Make data base, printed on Mon Jul  4 22:10:02 2022
 
 # Variables
 
@@ -101,6 +100,7 @@ FLAGS = -g -ffreestanding -falign-jumps -falign-functions -falign-labels -falign
 INCLUDES = -I./src
 # environment
 SESSION_MANAGER = local/pop-os:@/tmp/.ICE-unix/1740,unix/pop-os:/tmp/.ICE-unix/1740
+ 
 # automatic
 *F = $(notdir $*)
 # environment
@@ -140,7 +140,7 @@ VSCODE_LOG_NATIVE = false
 # environment
 USERNAME = reaur
 # makefile (from 'Makefile', line 2)
-FILES = ./build/kernel.S.o ./build/kernel.o ./build/vga.o ./build/idt.S.o ./build/idt.o ./build/memory.o ./build/heap_core.o ./build/kheap.o
+FILES = ./build/kernel.S.o ./build/kernel.o ./build/vga.o ./build/idt.S.o ./build/idt.o ./build/memory.o ./build/heap_core.o ./build/kheap.o ./build/paging.S.o ./build/paging.o
 # environment
 LESSCLOSE = /usr/bin/lesspipe %s %s
 # automatic
@@ -234,9 +234,16 @@ GDMSESSION = pop
 
 # Files
 
+# Not a target:
+src/memory/paging/paging.S:
+#  Implicit rule search has been done.
+#  Last modified 2022-07-04 22:02:04.369012107
+#  File has been updated.
+#  Successfully updated.
+
 bin/boot.bin: src/boot/boot.S
 #  Implicit rule search has not been done.
-#  Last modified 2022-07-04 19:38:37.142201254
+#  Last modified 2022-07-04 22:09:15.937995621
 #  File has been updated.
 #  Successfully updated.
 #  recipe to execute (from 'Makefile', line 14):
@@ -244,23 +251,23 @@ bin/boot.bin: src/boot/boot.S
 
 build/idt.o: src/idt/idt.c
 #  Implicit rule search has not been done.
-#  Last modified 2022-07-04 19:38:37.190201869
+#  Last modified 2022-07-04 22:09:15.98599574
 #  File has been updated.
 #  Successfully updated.
-#  recipe to execute (from 'Makefile', line 36):
+#  recipe to execute (from 'Makefile', line 39):
 	i686-linux-gnu-gcc $(INCLUDES) $(FLAGS) -std=gnu99 -c ./src/idt/idt.c -o ./build/idt.o
 
 build/kheap.o: src/memory/heap/kernel_heap/kheap.c
 #  Implicit rule search has not been done.
-#  Last modified 2022-07-04 19:38:37.230202382
+#  Last modified 2022-07-04 22:09:16.025995837
 #  File has been updated.
 #  Successfully updated.
-#  recipe to execute (from 'Makefile', line 45):
+#  recipe to execute (from 'Makefile', line 48):
 	i686-linux-gnu-gcc $(INCLUDES) $(FLAGS) -std=gnu99 -c ./src/memory/heap/kernel_heap/kheap.c -o ./build/kheap.o
 
-bin/kernel.bin: build/kernel.S.o build/kernel.o build/vga.o build/idt.S.o build/idt.o build/memory.o build/heap_core.o build/kheap.o
+bin/kernel.bin: build/kernel.S.o build/kernel.o build/vga.o build/idt.S.o build/idt.o build/memory.o build/heap_core.o build/kheap.o build/paging.S.o build/paging.o
 #  Implicit rule search has not been done.
-#  Last modified 2022-07-04 19:38:37.238202486
+#  Last modified 2022-07-04 22:09:16.049995897
 #  File has been updated.
 #  Successfully updated.
 #  recipe to execute (from 'Makefile', line 18):
@@ -276,41 +283,47 @@ src/idt/idt.S:
 
 build/idt.S.o: src/idt/idt.S
 #  Implicit rule search has not been done.
-#  Last modified 2022-07-04 19:38:37.174201664
+#  Last modified 2022-07-04 22:09:15.9699957
 #  File has been updated.
- 
 #  Successfully updated.
 #  recipe to execute (from 'Makefile', line 33):
 	nasm -f elf -g ./src/idt/idt.S -o ./build/idt.S.o
-	
 
 # Not a target:
 src/vga/vga.c:
 #  Implicit rule search has been done.
-#  Last modified 2022-07-03 16:04:32.22801966
+#  Last modified 2022-07-04 20:01:04.572122036
 #  File has been updated.
 #  Successfully updated.
+
+build/paging.o: src/memory/paging/paging.c
+#  Implicit rule search has not been done.
+#  Last modified 2022-07-04 22:09:16.041995877
+#  File has been updated.
+#  Successfully updated.
+#  recipe to execute (from 'Makefile', line 51):
+	i686-linux-gnu-gcc $(INCLUDES) $(FLAGS) -std=gnu99 -c ./src/memory/paging/paging.c -o ./build/paging.o
 
 debug:
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
-#  recipe to execute (from 'Makefile', line 55):
+#  recipe to execute (from 'Makefile', line 61):
 	qemu-system-i386 -hda ./bin/os.bin -S -gdb stdio
 
 # Not a target:
 Makefile:
 #  Implicit rule search has been done.
-#  Last modified 2022-07-04 19:38:31.878133993
+#  Last modified 2022-07-04 22:07:31.989743071
 #  File has been updated.
 #  Successfully updated.
 
 build/memory.o: src/memory/memory.c
 #  Implicit rule search has not been done.
-#  Last modified 2022-07-04 19:38:37.206202074
+#  Last modified 2022-07-04 22:09:15.993995759
 #  File has been updated.
 #  Successfully updated.
-#  recipe to execute (from 'Makefile', line 39):
+#  recipe to execute (from 'Makefile', line 42):
 	i686-linux-gnu-gcc $(INCLUDES) $(FLAGS) -std=gnu99 -c ./src/memory/memory.c -o ./build/memory.o	
 
 # Not a target:
@@ -324,13 +337,13 @@ clean:
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
-#  recipe to execute (from 'Makefile', line 48):
+#  recipe to execute (from 'Makefile', line 54):
 	rm -rf ./bin/*.bin
 	rm -rf ./build/*.o
 
 build/kernel.o: src/kernel.c
 #  Implicit rule search has not been done.
-#  Last modified 2022-07-04 19:38:37.154201407
+#  Last modified 2022-07-04 22:09:15.94999565
 #  File has been updated.
 #  Successfully updated.
 #  recipe to execute (from 'Makefile', line 27):
@@ -339,14 +352,23 @@ build/kernel.o: src/kernel.c
 # Not a target:
 src/boot/boot.S:
 #  Implicit rule search has been done.
-#  Last modified 2022-07-01 07:21:31.689347896
+#  Last modified 2022-07-04 20:36:06.506388651
 #  File has been updated.
 #  Successfully updated.
+
+build/paging.S.o: src/memory/paging/paging.S
+#  Implicit rule search has not been done.
+#  Last modified 2022-07-04 22:09:16.029995847
+#  File has been updated.
+#  Successfully updated.
+#  recipe to execute (from 'Makefile', line 36):
+	nasm -f elf -g ./src/memory/paging/paging.S -o ./build/paging.S.o
+	
 
 # Not a target:
 src/kernel.c:
 #  Implicit rule search has been done.
-#  Last modified 2022-07-04 19:37:53.82966032
+#  Last modified 2022-07-04 22:03:51.353237494
 #  File has been updated.
 #  Successfully updated.
 
@@ -397,27 +419,28 @@ run:
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
-#  recipe to execute (from 'Makefile', line 52):
+#  recipe to execute (from 'Makefile', line 58):
 	qemu-system-i386 -hda ./bin/os.bin
 
 build/heap_core.o: src/memory/heap/heap_core.c
 #  Implicit rule search has not been done.
-#  Last modified 2022-07-04 19:38:37.218202229
+#  Last modified 2022-07-04 22:09:16.013995808
+ 
 #  File has been updated.
 #  Successfully updated.
-#  recipe to execute (from 'Makefile', line 42):
+#  recipe to execute (from 'Makefile', line 45):
 	i686-linux-gnu-gcc $(INCLUDES) $(FLAGS) -std=gnu99 -c ./src/memory/heap/heap_core.c -o ./build/heap_core.o
 
 # Not a target:
 src/memory/heap/kernel_heap/kheap.c:
 #  Implicit rule search has been done.
-#  Last modified 2022-07-04 19:37:26.589335339
+#  Last modified 2022-07-04 20:59:13.819007106
 #  File has been updated.
 #  Successfully updated.
 
 build/vga.o: src/vga/vga.c
 #  Implicit rule search has not been done.
-#  Last modified 2022-07-04 19:38:37.174201664
+#  Last modified 2022-07-04 22:09:15.9699957
 #  File has been updated.
 #  Successfully updated.
 #  recipe to execute (from 'Makefile', line 30):
@@ -433,7 +456,7 @@ src/memory/memory.c:
 
 build/kernel.S.o: src/kernel.S
 #  Implicit rule search has not been done.
-#  Last modified 2022-07-04 19:38:37.142201254
+#  Last modified 2022-07-04 22:09:15.937995621
 #  File has been updated.
 #  Successfully updated.
 #  recipe to execute (from 'Makefile', line 24):
@@ -452,20 +475,27 @@ src/idt/idt.c:
 #  File has been updated.
 #  Successfully updated.
 
+# Not a target:
+src/memory/paging/paging.c:
+#  Implicit rule search has been done.
+#  Last modified 2022-07-04 21:56:45.136457356
+#  File has been updated.
+#  Successfully updated.
+
 # files hash-table stats:
-# Load=26/1024=3%, Rehash=0, Collisions=0/67=0%
+# Load=30/1024=3%, Rehash=0, Collisions=0/77=0%
 # VPATH Search Paths
 
 # No 'vpath' search paths.
 
 # No general ('VPATH' variable) search path.
 
-# strcache buffers: 1 (0) / strings = 37 / storage = 443 B / avg = 11 B
-# current buf: size = 8162 B / used = 443 B / count = 37 / avg = 11 B
+# strcache buffers: 1 (0) / strings = 41 / storage = 529 B / avg = 12 B
+# current buf: size = 8162 B / used = 529 B / count = 41 / avg = 12 B
 
-# strcache performance: lookups = 67 / hit rate = 44%
+# strcache performance: lookups = 75 / hit rate = 45%
 # hash-table stats:
-# Load=37/8192=0%, Rehash=0, Collisions=0/67=0%
-# Finished Make data base on Mon Jul  4 19:38:45 2022
+# Load=41/8192=1%, Rehash=0, Collisions=0/75=0%
+# Finished Make data base on Mon Jul  4 22:10:02 2022
 
  
