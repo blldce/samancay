@@ -1,5 +1,5 @@
 #include "idt.h"
-#include "memory.h"
+#include "../memory/memory.h"
 #include "../vga/vga.h"
 #include "../config/config.h"
 
