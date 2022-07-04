@@ -79,7 +79,7 @@ load32:
 
 
 
-
+; From OS Dev (https://wiki.osdev.org/ATA_read/write_sectors)
 
 ata_lba_read:
      mov ebx, eax, ; Backup the LBA
