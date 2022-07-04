@@ -1,6 +1,5 @@
 #include "kheap.h"
 #include "../heap_core.h"
-#include "../../../vga/vga.h"
 #include "../../../config/config.h"
 
 static struct heap k_heap;
