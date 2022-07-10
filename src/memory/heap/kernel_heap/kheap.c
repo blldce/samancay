@@ -1,7 +1,7 @@
 #include "kheap.h"
 #include "../heap_core.h"
 #include "../../../memory/memory.h"
-#include "../../../config/config.h"
+#include "config.h"
 
 static struct heap k_heap;
 static struct heap_info k_heap_info;

@@ -1,7 +1,7 @@
 #include "idt.h"
 #include "../memory/memory.h"
 #include "../vga/vga.h"
-#include "../config/config.h"
+#include "config.h"
 
 static struct idt_desc idt_descriptors[TOTAL_INTERRUPTS];
 static struct idtr_desc idtr_descriptor;
