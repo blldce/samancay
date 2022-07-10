@@ -8,14 +8,17 @@ make all --print-data-base --no-builtin-variables --no-builtin-rules --question
 # This program built for i386-apple-darwin11.3.0
  
 
-# Make data base, printed on Mon Jul 11 02:13:24 2022
+# Make data base, printed on Mon Jul 11 02:24:16 2022
 
 # Variables
 
 # automatic
 <D = $(patsubst %/,%,$(dir $<))
 # automatic
+ 
 ?F = $(notdir $?)
+# environment
+NODE_TLS_REJECT_UNAUTHORIZED = 0
 # environment
 ELECTRON_NO_ATTACH_CONSOLE = 1
 # environment
@@ -92,7 +95,6 @@ SHLVL = 3
 MAKE_VERSION := 3.81
 # environment
 USER = ceyhun
- 
 # makefile
 .DEFAULT_GOAL := all
 # environment
@@ -118,6 +120,7 @@ MAKEFLAGS = Rrqp
 # environment
 MFLAGS = -Rrqp
 # automatic
+ 
 *D = $(patsubst %/,%,$(dir $*))
 # environment
 TERM_PROGRAM_VERSION = 444
@@ -156,9 +159,9 @@ TERM = xterm-256color
 # environment
 VSCODE_PID = 45810
 # makefile (from `Makefile', line 2)
-FILES = ./build/kernel.S.o ./build/kernel.o ./build/vga.o ./build/idt.S.o ./build/idt.o ./build/memory.o ./build/heap_core.o ./build/kheap.o ./build/paging.S.o ./build/paging.o
+FILES = ./build/kernel.S.o ./build/kernel.o ./build/vga.o ./build/idt.S.o ./build/idt.o ./build/memory.o ./build/heap_core.o ./build/kheap.o ./build/paging.S.o ./build/paging.o ./string/string.o
 # variable set hash-table stats:
-# Load=72/1024=7%, Rehash=0, Collisions=1/98=1%
+# Load=73/1024=7%, Rehash=0, Collisions=1/101=1%
 
 # Pattern-specific Variable Values
 
@@ -190,8 +193,9 @@ all: bin/boot.bin bin/kernel.bin
 #  File does not exist.
 #  File has been updated.
 #  Needs to be updated (-q is set).
+ 
 # variable set hash-table stats:
-# Load=0/32=0%, Rehash=0, Collisions=0/2=0%
+# Load=0/32=0%, Rehash=0, Collisions=0/4=0%
 #  commands to execute (from `Makefile', line 8):
 	dd if=./bin/boot.bin >> ./bin/os.bin
 	dd if=./bin/kernel.bin >> ./bin/os.bin
@@ -220,36 +224,39 @@ src/idt/idt.c:
 
 bin/boot.bin: src/boot/boot.S
 #  Implicit rule search has not been done.
-#  Implicit/static pattern stem: `'
-#  File does not exist.
+#  Last modified 2022-07-11 02:23:52
 #  File has been updated.
-#  Needs to be updated (-q is set).
-# automatic
-# @ := bin/boot.bin
-# automatic
-# % := 
-# automatic
-# * := 
-# automatic
-# + := src/boot/boot.S
-# automatic
-# | := 
-# automatic
-# < := src/boot/boot.S
-# automatic
-# ^ := src/boot/boot.S
-# automatic
-# ? := src/boot/boot.S
+#  Successfully updated.
 # variable set hash-table stats:
-# Load=8/32=25%, Rehash=0, Collisions=1/10=10%
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
 #  commands to execute (from `Makefile', line 14):
 	nasm -f bin ./src/boot/boot.S -o ./bin/boot.bin
 	
 
 build/vga.o: src/vga/vga.c
 #  Implicit rule search has not been done.
-#  Modification time never checked.
-#  File has not been updated.
+#  Implicit/static pattern stem: `'
+#  File does not exist.
+#  File has been updated.
+#  Needs to be updated (-q is set).
+# automatic
+# @ := build/vga.o
+# automatic
+# % := 
+# automatic
+# * := 
+# automatic
+# + := src/vga/vga.c
+# automatic
+# | := 
+# automatic
+# < := src/vga/vga.c
+# automatic
+# ^ := src/vga/vga.c
+# automatic
+# ? := src/vga/vga.c
+# variable set hash-table stats:
+# Load=8/32=25%, Rehash=0, Collisions=1/12=8%
 #  commands to execute (from `Makefile', line 30):
 	i686-elf-gcc $(INCLUDES) $(FLAGS) -std=gnu99 -c ./src/vga/vga.c -o ./build/vga.o
 	
@@ -263,7 +270,7 @@ build/vga.o: src/vga/vga.c
 # Not a target:
 Makefile:
 #  Implicit rule search has been done.
-#  Last modified 2022-07-11 02:08:11
+#  Last modified 2022-07-11 02:23:44
 #  File has been updated.
 #  Successfully updated.
 # variable set hash-table stats:
@@ -273,7 +280,7 @@ debug:
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
-#  commands to execute (from `Makefile', line 61):
+#  commands to execute (from `Makefile', line 65):
 	qemu-system-i386 -hda ./bin/os.bin -S -gdb stdio
 	
 
@@ -301,34 +308,52 @@ build/idt.S.o: src/idt/idt.S
 	nasm -f elf -g ./src/idt/idt.S -o ./build/idt.S.o
 	
 
-bin/kernel.bin: build/kernel.S.o build/kernel.o build/vga.o build/idt.S.o build/idt.o build/memory.o build/heap_core.o build/kheap.o build/paging.S.o build/paging.o
+bin/kernel.bin: build/kernel.S.o build/kernel.o build/vga.o build/idt.S.o build/idt.o build/memory.o build/heap_core.o build/kheap.o build/paging.S.o build/paging.o string/string.o
 #  Implicit rule search has not been done.
-#  Modification time never checked.
-#  File has not been updated.
+#  File does not exist.
+#  File has been updated.
+#  Needs to be updated (-q is set).
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/4=0%
 #  commands to execute (from `Makefile', line 18):
 	i686-elf-ld -g $(FILES) -o ./build/kernelfull.o
 	i686-elf-gcc $(FLAGS) -T ./src/linker.ld -o ./bin/kernel.bin ./build/kernelfull.o
 	
 
+string/string.o: src/string/string.c
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+#  commands to execute (from `Makefile', line 54):
+	i686-elf-gcc $(INCLUDES) $(FLAGS) -std=gnu99 -c ./src/string/string.c -o ./build/string.o
+	
+
 # Not a target:
-src/memory/memory.c:
+src/string/string.c:
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
 
 build/kernel.o: src/kernel.c
 #  Implicit rule search has not been done.
-#  Modification time never checked.
-#  File has not been updated.
+#  Last modified 2022-07-11 02:23:52
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
 #  commands to execute (from `Makefile', line 27):
 	i686-elf-gcc $(INCLUDES) $(FLAGS) -std=gnu99 -c ./src/kernel.c -o ./build/kernel.o
 	
 
 # Not a target:
 src/vga/vga.c:
-#  Implicit rule search has not been done.
-#  Modification time never checked.
-#  File has not been updated.
+#  Implicit rule search has been done.
+ 
+#  Last modified 2022-07-11 02:22:10
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
 
 # Not a target:
 .DEFAULT:
@@ -357,7 +382,7 @@ run:
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
-#  commands to execute (from `Makefile', line 58):
+#  commands to execute (from `Makefile', line 62):
 	qemu-system-i386 -hda ./bin/os.bin
 	
 
@@ -365,7 +390,7 @@ clean:
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
-#  commands to execute (from `Makefile', line 54):
+#  commands to execute (from `Makefile', line 58):
 	rm -rf ./bin/*.bin
 	rm -rf ./build/*.o
 	
@@ -378,9 +403,11 @@ src/memory/heap/kernel_heap/kheap.c:
 
 build/kernel.S.o: src/kernel.S
 #  Implicit rule search has not been done.
- 
-#  Modification time never checked.
-#  File has not been updated.
+#  Last modified 2022-07-11 02:23:52
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
 #  commands to execute (from `Makefile', line 24):
 	nasm -f elf -g ./src/kernel.S -o ./build/kernel.S.o
 	
@@ -399,9 +426,12 @@ src/memory/paging/paging.c:
 
 # Not a target:
 src/kernel.S:
-#  Implicit rule search has not been done.
-#  Modification time never checked.
-#  File has not been updated.
+#  Implicit rule search has been done.
+#  Last modified 2022-07-11 02:05:49
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
 
 # Not a target:
 src/memory/heap/heap_core.c:
@@ -410,10 +440,19 @@ src/memory/heap/heap_core.c:
 #  File has not been updated.
 
 # Not a target:
-src/kernel.c:
+src/memory/memory.c:
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
+
+# Not a target:
+src/kernel.c:
+#  Implicit rule search has been done.
+#  Last modified 2022-07-11 02:05:49
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
 
 build/paging.o: src/memory/paging/paging.c
 #  Implicit rule search has not been done.
@@ -424,7 +463,7 @@ build/paging.o: src/memory/paging/paging.c
 	
 
 # files hash-table stats:
-# Load=30/1024=3%, Rehash=0, Collisions=0/67=0%
+# Load=32/1024=3%, Rehash=0, Collisions=2/71=3%
 # VPATH Search Paths
 
 # No `vpath' search paths.
@@ -436,6 +475,6 @@ build/paging.o: src/memory/paging/paging.c
 # strcache size: total = 4096 / max = 4096 / min = 4096 / avg = 4096
 # strcache free: total = 4087 / max = 4087 / min = 4087 / avg = 4087
 
-# Finished Make data base on Mon Jul 11 02:13:24 2022
+# Finished Make data base on Mon Jul 11 02:24:16 2022
 
  

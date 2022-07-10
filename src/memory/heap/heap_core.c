@@ -1,7 +1,7 @@
 
 #include "heap_core.h"
 #include "../memory.h"
-#include "../../config/config.h"
+#include "config.h"
 #include "../../vga/vga.h"
 
 static int validate_heap_aligment(void(*));

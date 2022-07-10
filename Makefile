@@ -1,5 +1,5 @@
 
-FILES = ./build/kernel.S.o ./build/kernel.o ./build/vga.o ./build/idt.S.o ./build/idt.o ./build/memory.o ./build/heap_core.o ./build/kheap.o ./build/paging.S.o ./build/paging.o
+FILES = ./build/kernel.S.o ./build/kernel.o ./build/vga.o ./build/idt.S.o ./build/idt.o ./build/memory.o ./build/heap_core.o ./build/kheap.o ./build/paging.S.o ./build/paging.o ./build/string.o
 INCLUDES = -I./src
 FLAGS = -g -ffreestanding -falign-jumps -falign-functions -falign-labels -falign-loops -fstrength-reduce -fomit-frame-pointer -finline-functions -Wno-unused-function -fno-builtin -Werror -Wno-unused-label -Wno-cpp -Wno-unused-parameter -nodefaultlibs -nostdlib -nostartfiles -nolibc -nodefaultlibs -Wall -O0 -Iinc
 
@@ -49,6 +49,10 @@ all: ./bin/boot.bin ./bin/kernel.bin
 
 ./build/paging.o : ./src/memory/paging/paging.c
 	i686-elf-gcc $(INCLUDES) $(FLAGS) -std=gnu99 -c ./src/memory/paging/paging.c -o ./build/paging.o
+
+./build/string.o: ./src/string/string.c
+	i686-elf-gcc $(INCLUDES) $(FLAGS) -std=gnu99 -c ./src/string/string.c -o ./build/string.o
+
 
 clean:
 	rm -rf ./bin/*.bin
