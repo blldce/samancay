@@ -1,222 +1,162 @@
 make all --print-data-base --no-builtin-variables --no-builtin-rules --question
-# GNU Make 4.3
-# Built for x86_64-pc-linux-gnu
-# Copyright (C) 1988-2020 Free Software Foundation, Inc.
-# License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
-# This is free software: you are free to change and redistribute it.
-# There is NO WARRANTY, to the extent permitted by law.
+# GNU Make 3.81
+# Copyright (C) 2006  Free Software Foundation, Inc.
+# This is free software; see the source for copying conditions.
+# There is NO warranty; not even for MERCHANTABILITY or FITNESS FOR A
+# PARTICULAR PURPOSE.
 
-# Make data base, printed on Mon Jul  4 22:10:02 2022
+# This program built for i386-apple-darwin11.3.0
+
+# Make data base, printed on Mon Jul 11 02:06:42 2022
 
 # Variables
 
-# environment
-GDK_BACKEND = x11
-# environment
-LC_ALL = C
-# environment
-GNOME_SHELL_SESSION_MODE = pop
-# environment
-SSH_AGENT_LAUNCHER = gnome-keyring
-# environment
-VSCODE_IPC_HOOK_EXTHOST = /run/user/1000/vscode-ipc-fb49bb86-2607-4ebb-b5d0-9181f7ca3815.sock
-# environment
-VSCODE_CWD = /home/reaur/Desktop/git/samancay
-# environment
-WINDOWPATH = 2
-# default
-MAKE_COMMAND := make
-# environment
-QT_ACCESSIBILITY = 1
-# automatic
-@D = $(patsubst %/,%,$(dir $@))
-# environment
-VSCODE_HANDLES_UNCAUGHT_ERRORS = true
-# default
-.VARIABLES := 
-# environment
-PWD = /home/reaur/Desktop/git/samancay
-# automatic
-%D = $(patsubst %/,%,$(dir $%))
-# environment
-XDG_DATA_DIRS = /usr/share/pop:/usr/share/gnome:/home/reaur/.local/share/flatpak/exports/share:/var/lib/flatpak/exports/share:/usr/local/share/:/usr/share/
-# automatic
-^D = $(patsubst %/,%,$(dir $^))
-# environment
-VSCODE_LOG_STACK = false
-# automatic
-%F = $(notdir $%)
-# environment
-VSCODE_CODE_CACHE_PATH = /home/reaur/.config/Code/CachedData/30d9c6cd9483b2cc586687151bcbcd635f373630
-# environment
-LANG = C
-# environment
-XAUTHORITY = /run/user/1000/gdm/Xauthority
-# default
-.LOADED := 
-# default
-.INCLUDE_DIRS = /usr/local/include /usr/include /usr/include
-# environment
-GNOME_TERMINAL_SERVICE = :1.95
-# makefile
-MAKEFLAGS = pqrR
-# makefile
-CURDIR := /home/reaur/Desktop/git/samancay
-# environment
-VSCODE_PIPE_LOGGING = true
-# environment
-APPLICATION_INSIGHTS_NO_DIAGNOSTIC_CHANNEL = 1
-# environment
-LESSOPEN = | /usr/bin/lesspipe %s
-# automatic
-*D = $(patsubst %/,%,$(dir $*))
-# environment
-MFLAGS = -pqrR
-# environment
-SSH_AUTH_SOCK = /run/user/1000/keyring/ssh
-# default
-.SHELLFLAGS := -c
-# environment
-XDG_CONFIG_DIRS = /etc/xdg/xdg-pop:/etc/xdg
-# automatic
-+D = $(patsubst %/,%,$(dir $+))
-# environment
-XDG_SESSION_DESKTOP = pop
-# makefile (from 'Makefile', line 1)
-MAKEFILE_LIST := Makefile
-# automatic
-@F = $(notdir $@)
-# environment
-VSCODE_VERBOSE_LOGGING = true
-# environment
-VSCODE_PID = 3644
-# environment
-XDG_SESSION_TYPE = x11
-# automatic
-?D = $(patsubst %/,%,$(dir $?))
-# makefile (from 'Makefile', line 4)
-FLAGS = -g -ffreestanding -falign-jumps -falign-functions -falign-labels -falign-loops -fstrength-reduce -fomit-frame-pointer -finline-functions -Wno-unused-function -fno-builtin -Werror -Wno-unused-label -Wno-cpp -Wno-unused-parameter -nodefaultlibs -nostdlib -nostartfiles -nolibc -nodefaultlibs -Wall -O0 -Iinc
-# makefile (from 'Makefile', line 3)
-INCLUDES = -I./src
-# environment
-SESSION_MANAGER = local/pop-os:@/tmp/.ICE-unix/1740,unix/pop-os:/tmp/.ICE-unix/1740
- 
-# automatic
-*F = $(notdir $*)
-# environment
-CHROME_DESKTOP = code-url-handler.desktop
-# environment
-DBUS_SESSION_BUS_ADDRESS = unix:path=/run/user/1000/bus
 # automatic
 <D = $(patsubst %/,%,$(dir $<))
-# environment
-VSCODE_NLS_CONFIG = {"locale":"en-us","availableLanguages":{},"_languagePackSupport":true}
-# default
-MAKE_HOST := x86_64-pc-linux-gnu
-# environment
-GNOME_DESKTOP_SESSION_ID = this-is-deprecated
-# makefile
-SHELL = /bin/sh
-# default
-MAKECMDGOALS := all
-# environment
-XMODIFIERS = @im=ibus
-# environment
-SHLVL = 1
-# environment
-GNOME_TERMINAL_SCREEN = /org/gnome/Terminal/screen/81289fa9_8c44_4868_abe2_4dedc8f82f1f
-# environment
-MAKELEVEL := 0
-# default
-MAKE = $(MAKE_COMMAND)
-# environment
-PATH = /home/reaur/.cargo/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin
-# default
-MAKEFILES := 
-# automatic
-^F = $(notdir $^)
-# environment
-VSCODE_LOG_NATIVE = false
-# environment
-USERNAME = reaur
-# makefile (from 'Makefile', line 2)
-FILES = ./build/kernel.S.o ./build/kernel.o ./build/vga.o ./build/idt.S.o ./build/idt.o ./build/memory.o ./build/heap_core.o ./build/kheap.o ./build/paging.S.o ./build/paging.o
-# environment
-LESSCLOSE = /usr/bin/lesspipe %s %s
 # automatic
 ?F = $(notdir $?)
 # environment
-GTK_IM_MODULE = ibus
+ELECTRON_NO_ATTACH_CONSOLE = 1
 # environment
-XDG_CURRENT_DESKTOP = Unity
-# environment
-LS_COLORS = rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:
+LC_CTYPE = UTF-8
 # automatic
-+F = $(notdir $+)
-# environment
-DESKTOP_SESSION = pop
-# environment
-ORIGINAL_XDG_CURRENT_DESKTOP = pop:GNOME
-# 'override' directive
-GNUMAKEFLAGS := 
-# environment
-LOGNAME = reaur
+?D = $(patsubst %/,%,$(dir $?))
+# makefile (from `Makefile', line 3)
+INCLUDES = -I./src
+# automatic
+@D = $(patsubst %/,%,$(dir $@))
+# automatic
+@F = $(notdir $@)
 # makefile
-.DEFAULT_GOAL := all
+CURDIR := /Users/ceyhun/Desktop/samancay-entegre/samancay
+# makefile
+SHELL = /bin/sh
 # environment
-SYSTEMD_EXEC_PID = 2305
+VSCODE_NLS_CONFIG = {"locale":"en-us","availableLanguages":{},"_languagePackSupport":true}
 # environment
-DISPLAY = :1
+_ = /usr/bin/make
+# makefile (from `Makefile', line 1)
+MAKEFILE_LIST :=  Makefile
 # environment
-USER = reaur
+__CFBundleIdentifier = com.microsoft.VSCode
 # environment
-GTK_MODULES = gail:atk-bridge:appmenu-gtk-module
+INFOPATH = /opt/homebrew/share/info:
+# environment
+VSCODE_CWD = /Users/ceyhun/Desktop/samancay-entegre/samancay
+# environment
+PATH = /opt/homebrew/bin:/opt/homebrew/sbin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/Library/Apple/usr/bin:/Users/ceyhun/.cargo/bin:/opt/homebrew/opt/llvm/bin:/Applications/Visual Studio Code.app/Contents/Resources/app/bin
+# environment
+ELECTRON_RUN_AS_NODE = 1
 # default
-MAKE_VERSION := 4.3
+.FEATURES := target-specific order-only second-expansion else-if archives jobserver check-symlink
 # environment
-NODE_TLS_REJECT_UNAUTHORIZED = 0
+SSH_AUTH_SOCK = /private/tmp/com.apple.launchd.wKrtJmhSyq/Listeners
+# automatic
+%F = $(notdir $%)
 # environment
-_ = /usr/bin/code
+PWD = /Users/ceyhun/Desktop/samancay-entegre/samancay
 # environment
-XDG_RUNTIME_DIR = /run/user/1000
+HOMEBREW_CELLAR = /opt/homebrew/Cellar
 # environment
-GPG_AGENT_INFO = /run/user/1000/gnupg/S.gpg-agent:0:1
+ORIGINAL_XDG_CURRENT_DESKTOP = undefined
 # environment
-COLORTERM = truecolor
-# environment
-XDG_SESSION_CLASS = user
+MANPATH = /opt/homebrew/share/man::
 # environment
 VSCODE_AMD_ENTRYPOINT = vs/workbench/api/node/extensionHostProcess
 # environment
-HOME = /home/reaur
-# environment
-QT_IM_MODULE = ibus
-# environment
-ELECTRON_RUN_AS_NODE = 1
-# environment
-VSCODE_IPC_HOOK = /run/user/1000/vscode-5aa9fa20-1.68.1-main.sock
-# environment
-TERM = xterm-256color
+HOME = /Users/ceyhun
 # default
-.RECIPEPREFIX := 
-# automatic
-<F = $(notdir $<)
-# default
-SUFFIXES := 
+MAKEFILEPATH = $(shell /usr/bin/xcode-select -print-path 2>/dev/null || echo /Developer)/Makefiles
 # environment
 VSCODE_CLI = 1
 # environment
-ELECTRON_NO_ATTACH_CONSOLE = 1
+VSCODE_CODE_CACHE_PATH = /Users/ceyhun/Library/Application Support/Code/CachedData/92d25e35d9bf1a6b16f7d0758f25d48ace11e5b9
 # environment
-VTE_VERSION = 6800
+LOGNAME = ceyhun
+# environment
+APPLICATION_INSIGHTS_NO_DIAGNOSTIC_CHANNEL = 1
+# environment
+VSCODE_HANDLES_UNCAUGHT_ERRORS = true
+# automatic
+^D = $(patsubst %/,%,$(dir $^))
+# environment
+XPC_FLAGS = 0x0
 # default
-.FEATURES := target-specific order-only second-expansion else-if shortest-stem undefine oneshell nocomment grouped-target extra-prereqs archives jobserver output-sync check-symlink load
+MAKE = $(MAKE_COMMAND)
+# default
+MAKECMDGOALS := all
 # environment
-XDG_MENU_PREFIX = gnome-
+SHLVL = 3
+# default
+MAKE_VERSION := 3.81
 # environment
-GDMSESSION = pop
+USER = ceyhun
+# makefile
+.DEFAULT_GOAL := all
+# environment
+TERM_SESSION_ID = 832422A7-FCD9-4242-B4A8-D3497D731615
+# automatic
+%D = $(patsubst %/,%,$(dir $%))
+# default
+MAKE_COMMAND := /Library/Developer/CommandLineTools/usr/bin/make
+# environment
+TERM_PROGRAM = Apple_Terminal
+# default
+.VARIABLES := 
+# environment
+TMPDIR = /var/folders/kq/0rzkzk1x77lgl0dvgq6tlpdw0000gn/T/
+# automatic
+*F = $(notdir $*)
+# environment
+VSCODE_IPC_HOOK = /Users/ceyhun/Library/Application Support/Code/1.69.0-main.sock
+# environment
+MallocNanoZone = 0
+# makefile
+MAKEFLAGS = Rrqp
+# environment
+MFLAGS = -Rrqp
+# automatic
+*D = $(patsubst %/,%,$(dir $*))
+# environment
+TERM_PROGRAM_VERSION = 444
+# environment
+XPC_SERVICE_NAME = application.com.microsoft.VSCode.12651424.12651430.EF1A1AA2-A153-402E-942C-EE08F559259A
+# environment
+HOMEBREW_PREFIX = /opt/homebrew
+# automatic
++D = $(patsubst %/,%,$(dir $+))
+# automatic
++F = $(notdir $+)
+# environment
+HOMEBREW_REPOSITORY = /opt/homebrew
+# environment
+__CF_USER_TEXT_ENCODING = 0x1F5:0x0:0x0
+# environment
+COMMAND_MODE = unix2003
+# default
+MAKEFILES := 
+# automatic
+<F = $(notdir $<)
+# environment
+LC_ALL = C
+# automatic
+^F = $(notdir $^)
+# default
+SUFFIXES := 
+# makefile (from `Makefile', line 4)
+FLAGS = -g -ffreestanding -falign-jumps -falign-functions -falign-labels -falign-loops -fstrength-reduce -fomit-frame-pointer -finline-functions -Wno-unused-function -fno-builtin -Werror -Wno-unused-label -Wno-cpp -Wno-unused-parameter -nodefaultlibs -nostdlib -nostartfiles -nolibc -nodefaultlibs -Wall -O0 -Iinc
+# environment
+MAKELEVEL := 0
+# environment
+LANG = C
+# environment
+TERM = xterm-256color
+# environment
+VSCODE_PID = 45810
+# makefile (from `Makefile', line 2)
+FILES = ./build/kernel.S.o ./build/kernel.o ./build/vga.o ./build/idt.S.o ./build/idt.o ./build/memory.o ./build/heap_core.o ./build/kheap.o ./build/paging.S.o ./build/paging.o
 # variable set hash-table stats:
-# Load=102/1024=10%, Rehash=0, Collisions=10/136=7%
+# Load=72/1024=7%, Rehash=0, Collisions=1/100=1%
 
 # Pattern-specific Variable Values
 
@@ -224,7 +164,7 @@ GDMSESSION = pop
 
 # Directories
 
-# . (device 66307, inode 27266129): 10 files, no impossibilities.
+# . (device 16777231, inode 12654871): 10 files, no impossibilities.
 
 # 10 files, no impossibilities in 1 directories.
 
@@ -234,233 +174,66 @@ GDMSESSION = pop
 
 # Files
 
-# Not a target:
-src/memory/paging/paging.S:
-#  Implicit rule search has been done.
-#  Last modified 2022-07-04 22:02:04.369012107
-#  File has been updated.
-#  Successfully updated.
-
-bin/boot.bin: src/boot/boot.S
-#  Implicit rule search has not been done.
-#  Last modified 2022-07-04 22:09:15.937995621
-#  File has been updated.
-#  Successfully updated.
-#  recipe to execute (from 'Makefile', line 14):
-	nasm -f bin ./src/boot/boot.S -o ./bin/boot.bin
-
 build/idt.o: src/idt/idt.c
 #  Implicit rule search has not been done.
-#  Last modified 2022-07-04 22:09:15.98599574
-#  File has been updated.
-#  Successfully updated.
-#  recipe to execute (from 'Makefile', line 39):
+#  Modification time never checked.
+#  File has not been updated.
+#  commands to execute (from `Makefile', line 39):
 	i686-linux-gnu-gcc $(INCLUDES) $(FLAGS) -std=gnu99 -c ./src/idt/idt.c -o ./build/idt.o
-
-build/kheap.o: src/memory/heap/kernel_heap/kheap.c
-#  Implicit rule search has not been done.
-#  Last modified 2022-07-04 22:09:16.025995837
-#  File has been updated.
-#  Successfully updated.
-#  recipe to execute (from 'Makefile', line 48):
-	i686-linux-gnu-gcc $(INCLUDES) $(FLAGS) -std=gnu99 -c ./src/memory/heap/kernel_heap/kheap.c -o ./build/kheap.o
-
-bin/kernel.bin: build/kernel.S.o build/kernel.o build/vga.o build/idt.S.o build/idt.o build/memory.o build/heap_core.o build/kheap.o build/paging.S.o build/paging.o
-#  Implicit rule search has not been done.
-#  Last modified 2022-07-04 22:09:16.049995897
-#  File has been updated.
-#  Successfully updated.
-#  recipe to execute (from 'Makefile', line 18):
-	i686-linux-gnu-ld -g $(FILES) -o ./build/kernelfull.o
-	i686-linux-gnu-gcc $(FLAGS) -T ./src/linker.ld -o ./bin/kernel.bin ./build/kernelfull.o
-
-# Not a target:
-src/idt/idt.S:
-#  Implicit rule search has been done.
-#  Last modified 2022-07-03 02:23:02.459220322
-#  File has been updated.
-#  Successfully updated.
-
-build/idt.S.o: src/idt/idt.S
-#  Implicit rule search has not been done.
-#  Last modified 2022-07-04 22:09:15.9699957
-#  File has been updated.
-#  Successfully updated.
-#  recipe to execute (from 'Makefile', line 33):
-	nasm -f elf -g ./src/idt/idt.S -o ./build/idt.S.o
-
-# Not a target:
-src/vga/vga.c:
-#  Implicit rule search has been done.
-#  Last modified 2022-07-04 20:01:04.572122036
-#  File has been updated.
-#  Successfully updated.
-
-build/paging.o: src/memory/paging/paging.c
-#  Implicit rule search has not been done.
-#  Last modified 2022-07-04 22:09:16.041995877
-#  File has been updated.
-#  Successfully updated.
-#  recipe to execute (from 'Makefile', line 51):
-	i686-linux-gnu-gcc $(INCLUDES) $(FLAGS) -std=gnu99 -c ./src/memory/paging/paging.c -o ./build/paging.o
-
-debug:
-#  Implicit rule search has not been done.
-#  Modification time never checked.
-#  File has not been updated.
-#  recipe to execute (from 'Makefile', line 61):
-	qemu-system-i386 -hda ./bin/os.bin -S -gdb stdio
-
-# Not a target:
-Makefile:
-#  Implicit rule search has been done.
-#  Last modified 2022-07-04 22:07:31.989743071
-#  File has been updated.
-#  Successfully updated.
-
-build/memory.o: src/memory/memory.c
-#  Implicit rule search has not been done.
-#  Last modified 2022-07-04 22:09:15.993995759
-#  File has been updated.
-#  Successfully updated.
-#  recipe to execute (from 'Makefile', line 42):
-	i686-linux-gnu-gcc $(INCLUDES) $(FLAGS) -std=gnu99 -c ./src/memory/memory.c -o ./build/memory.o	
-
-# Not a target:
-src/kernel.S:
-#  Implicit rule search has been done.
-#  Last modified 2022-07-01 23:27:27.731198366
-#  File has been updated.
-#  Successfully updated.
-
-clean:
-#  Implicit rule search has not been done.
-#  Modification time never checked.
-#  File has not been updated.
-#  recipe to execute (from 'Makefile', line 54):
-	rm -rf ./bin/*.bin
-	rm -rf ./build/*.o
-
-build/kernel.o: src/kernel.c
-#  Implicit rule search has not been done.
-#  Last modified 2022-07-04 22:09:15.94999565
-#  File has been updated.
-#  Successfully updated.
-#  recipe to execute (from 'Makefile', line 27):
-	i686-linux-gnu-gcc $(INCLUDES) $(FLAGS) -std=gnu99 -c ./src/kernel.c -o ./build/kernel.o
-
-# Not a target:
-src/boot/boot.S:
-#  Implicit rule search has been done.
-#  Last modified 2022-07-04 20:36:06.506388651
-#  File has been updated.
-#  Successfully updated.
-
-build/paging.S.o: src/memory/paging/paging.S
-#  Implicit rule search has not been done.
-#  Last modified 2022-07-04 22:09:16.029995847
-#  File has been updated.
-#  Successfully updated.
-#  recipe to execute (from 'Makefile', line 36):
-	nasm -f elf -g ./src/memory/paging/paging.S -o ./build/paging.S.o
 	
 
-# Not a target:
-src/kernel.c:
-#  Implicit rule search has been done.
-#  Last modified 2022-07-04 22:03:51.353237494
-#  File has been updated.
-#  Successfully updated.
-
-# Not a target:
-.DEFAULT:
-#  Implicit rule search has not been done.
-#  Modification time never checked.
-#  File has not been updated.
-
-# Not a target:
-src/memory/heap/heap_core.c:
-#  Implicit rule search has been done.
-#  Last modified 2022-07-04 19:31:45.122583936
-#  File has been updated.
-#  Successfully updated.
-
 all: bin/boot.bin bin/kernel.bin
-#  Command line target.
+#  Command-line target.
 #  Implicit rule search has not been done.
-#  Implicit/static pattern stem: ''
 #  File does not exist.
 #  File has been updated.
 #  Needs to be updated (-q is set).
-# automatic
-# @ := all
-# automatic
-# * := 
-# automatic
-# < := bin/boot.bin
-# automatic
-# + := bin/boot.bin bin/kernel.bin
-# automatic
-# % := 
-# automatic
-# ^ := bin/boot.bin bin/kernel.bin
-# automatic
-# ? := bin/boot.bin bin/kernel.bin
-# automatic
-# | := 
 # variable set hash-table stats:
-# Load=8/32=25%, Rehash=0, Collisions=1/11=9%
-#  recipe to execute (from 'Makefile', line 8):
+# Load=0/32=0%, Rehash=0, Collisions=0/4=0%
+#  commands to execute (from `Makefile', line 8):
 	dd if=./bin/boot.bin >> ./bin/os.bin
 	dd if=./bin/kernel.bin >> ./bin/os.bin
 	dd if=/dev/zero bs=512 count=100 >> ./bin/os.bin
-
-run:
-#  Implicit rule search has not been done.
-#  Modification time never checked.
-#  File has not been updated.
-#  recipe to execute (from 'Makefile', line 58):
-	qemu-system-i386 -hda ./bin/os.bin
-
-build/heap_core.o: src/memory/heap/heap_core.c
-#  Implicit rule search has not been done.
-#  Last modified 2022-07-04 22:09:16.013995808
- 
-#  File has been updated.
-#  Successfully updated.
-#  recipe to execute (from 'Makefile', line 45):
-	i686-linux-gnu-gcc $(INCLUDES) $(FLAGS) -std=gnu99 -c ./src/memory/heap/heap_core.c -o ./build/heap_core.o
-
-# Not a target:
-src/memory/heap/kernel_heap/kheap.c:
-#  Implicit rule search has been done.
-#  Last modified 2022-07-04 20:59:13.819007106
-#  File has been updated.
-#  Successfully updated.
-
-build/vga.o: src/vga/vga.c
-#  Implicit rule search has not been done.
-#  Last modified 2022-07-04 22:09:15.9699957
-#  File has been updated.
-#  Successfully updated.
-#  recipe to execute (from 'Makefile', line 30):
-	i686-linux-gnu-gcc $(INCLUDES) $(FLAGS) -std=gnu99 -c ./src/vga/vga.c -o ./build/vga.o
 	
 
 # Not a target:
-src/memory/memory.c:
-#  Implicit rule search has been done.
-#  Last modified 2022-07-04 18:49:13.826835836
-#  File has been updated.
-#  Successfully updated.
-
-build/kernel.S.o: src/kernel.S
+src/idt/idt.S:
 #  Implicit rule search has not been done.
-#  Last modified 2022-07-04 22:09:15.937995621
+#  Modification time never checked.
+#  File has not been updated.
+
+build/memory.o: src/memory/memory.c
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+#  commands to execute (from `Makefile', line 42):
+	i686-linux-gnu-gcc $(INCLUDES) $(FLAGS) -std=gnu99 -c ./src/memory/memory.c -o ./build/memory.o	
+	
+
+# Not a target:
+src/idt/idt.c:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+bin/boot.bin: src/boot/boot.S
+#  Implicit rule search has not been done.
+#  Last modified 2022-07-11 02:06:20
 #  File has been updated.
 #  Successfully updated.
-#  recipe to execute (from 'Makefile', line 24):
-	nasm -f elf -g ./src/kernel.S -o ./build/kernel.S.o
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+#  commands to execute (from `Makefile', line 14):
+	nasm -f bin ./src/boot/boot.S -o ./bin/boot.bin
+	
+
+build/vga.o: src/vga/vga.c
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+#  commands to execute (from `Makefile', line 30):
+	i686-linux-gnu-gcc $(INCLUDES) $(FLAGS) -std=gnu99 -c ./src/vga/vga.c -o ./build/vga.o
+	
 
 # Not a target:
 .SUFFIXES:
@@ -469,33 +242,213 @@ build/kernel.S.o: src/kernel.S
 #  File has not been updated.
 
 # Not a target:
-src/idt/idt.c:
+Makefile:
 #  Implicit rule search has been done.
-#  Last modified 2022-07-04 18:49:13.826835836
+#  Last modified 2022-07-11 02:05:49
 #  File has been updated.
 #  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+
+debug:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+#  commands to execute (from `Makefile', line 61):
+	qemu-system-i386 -hda ./bin/os.bin -S -gdb stdio
+	
+
+build/paging.S.o: src/memory/paging/paging.S
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+#  commands to execute (from `Makefile', line 36):
+	nasm -f elf -g ./src/memory/paging/paging.S -o ./build/paging.S.o
+	
+
+build/heap_core.o: src/memory/heap/heap_core.c
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+#  commands to execute (from `Makefile', line 45):
+	i686-linux-gnu-gcc $(INCLUDES) $(FLAGS) -std=gnu99 -c ./src/memory/heap/heap_core.c -o ./build/heap_core.o
+	
+
+build/idt.S.o: src/idt/idt.S
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+#  commands to execute (from `Makefile', line 33):
+	nasm -f elf -g ./src/idt/idt.S -o ./build/idt.S.o
+	
+
+ 
+bin/kernel.bin: build/kernel.S.o build/kernel.o build/vga.o build/idt.S.o build/idt.o build/memory.o build/heap_core.o build/kheap.o build/paging.S.o build/paging.o
+#  Implicit rule search has not been done.
+#  File does not exist.
+#  File has been updated.
+#  Needs to be updated (-q is set).
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/4=0%
+#  commands to execute (from `Makefile', line 18):
+	i686-linux-gnu-ld -g $(FILES) -o ./build/kernelfull.o
+	i686-linux-gnu-gcc $(FLAGS) -T ./src/linker.ld -o ./bin/kernel.bin ./build/kernelfull.o
+	
+
+# Not a target:
+src/memory/memory.c:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+build/kernel.o: src/kernel.c
+#  Implicit rule search has not been done.
+#  Implicit/static pattern stem: `'
+#  File does not exist.
+#  File has been updated.
+#  Needs to be updated (-q is set).
+# automatic
+# @ := build/kernel.o
+# automatic
+# % := 
+# automatic
+# * := 
+# automatic
+# + := src/kernel.c
+# automatic
+# | := 
+# automatic
+# < := src/kernel.c
+# automatic
+# ^ := src/kernel.c
+# automatic
+# ? := src/kernel.c
+# variable set hash-table stats:
+# Load=8/32=25%, Rehash=0, Collisions=1/12=8%
+#  commands to execute (from `Makefile', line 27):
+	i686-linux-gnu-gcc $(INCLUDES) $(FLAGS) -std=gnu99 -c ./src/kernel.c -o ./build/kernel.o
+	
+
+# Not a target:
+src/vga/vga.c:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+.DEFAULT:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+src/boot/boot.S:
+#  Implicit rule search has been done.
+#  Last modified 2022-07-11 02:05:49
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+
+build/kheap.o: src/memory/heap/kernel_heap/kheap.c
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+#  commands to execute (from `Makefile', line 48):
+	i686-linux-gnu-gcc $(INCLUDES) $(FLAGS) -std=gnu99 -c ./src/memory/heap/kernel_heap/kheap.c -o ./build/kheap.o
+	
+
+run:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+#  commands to execute (from `Makefile', line 58):
+	qemu-system-i386 -hda ./bin/os.bin
+	
+
+clean:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+#  commands to execute (from `Makefile', line 54):
+	rm -rf ./bin/*.bin
+	rm -rf ./build/*.o
+	
+
+# Not a target:
+src/memory/heap/kernel_heap/kheap.c:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+build/kernel.S.o: src/kernel.S
+#  Implicit rule search has not been done.
+#  Last modified 2022-07-11 02:06:30
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+#  commands to execute (from `Makefile', line 24):
+	nasm -f elf -g ./src/kernel.S -o ./build/kernel.S.o
+	
+
+# Not a target:
+src/memory/paging/paging.S:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
 
 # Not a target:
 src/memory/paging/paging.c:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+src/kernel.S:
 #  Implicit rule search has been done.
-#  Last modified 2022-07-04 21:56:45.136457356
+#  Last modified 2022-07-11 02:05:49
 #  File has been updated.
 #  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+
+# Not a target:
+src/memory/heap/heap_core.c:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+src/kernel.c:
+#  Implicit rule search has been done.
+#  Last modified 2022-07-11 02:05:49
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+
+build/paging.o: src/memory/paging/paging.c
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+#  commands to execute (from `Makefile', line 51):
+	i686-linux-gnu-gcc $(INCLUDES) $(FLAGS) -std=gnu99 -c ./src/memory/paging/paging.c -o ./build/paging.o
+	
 
 # files hash-table stats:
-# Load=30/1024=3%, Rehash=0, Collisions=0/77=0%
+# Load=30/1024=3%, Rehash=0, Collisions=0/67=0%
 # VPATH Search Paths
 
-# No 'vpath' search paths.
+# No `vpath' search paths.
 
-# No general ('VPATH' variable) search path.
+# No general (`VPATH' variable) search path.
 
-# strcache buffers: 1 (0) / strings = 41 / storage = 529 B / avg = 12 B
-# current buf: size = 8162 B / used = 529 B / count = 41 / avg = 12 B
+# # of strings in strcache: 1
+# # of strcache buffers: 1
+# strcache size: total = 4096 / max = 4096 / min = 4096 / avg = 4096
+# strcache free: total = 4087 / max = 4087 / min = 4087 / avg = 4087
 
-# strcache performance: lookups = 75 / hit rate = 45%
-# hash-table stats:
-# Load=41/8192=1%, Rehash=0, Collisions=0/75=0%
-# Finished Make data base on Mon Jul  4 22:10:02 2022
+# Finished Make data base on Mon Jul 11 02:06:42 2022
 
  
